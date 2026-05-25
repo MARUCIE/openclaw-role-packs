@@ -3,7 +3,11 @@ import { join, resolve } from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
 const sourceArgIndex = process.argv.indexOf('--source');
-const source = resolve(sourceArgIndex === -1 ? '/Users/mauricewen/Projects/22-openclaw-foundry' : process.argv[sourceArgIndex + 1]);
+const sourceInput = sourceArgIndex === -1 ? process.env.FOUNDRY_SOURCE : process.argv[sourceArgIndex + 1];
+if (!sourceInput) {
+  throw new Error('Missing Foundry source. Pass --source <foundry-root> or set FOUNDRY_SOURCE.');
+}
+const source = resolve(sourceInput);
 const stamp = new Date().toISOString().replace(/[:.]/g, '-');
 const backupRoot = join(root, '.sync-backups', stamp);
 const tmpRoot = join(root, '.sync-tmp', stamp);

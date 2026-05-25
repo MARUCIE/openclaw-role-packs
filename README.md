@@ -63,4 +63,4 @@ npm run validate
 npm run smoke:install
 ```
 
-The default source is `/Users/mauricewen/Projects/22-openclaw-foundry`. Use `--source <path>` to sync from another Foundry checkout.
+Sync requires an explicit source: `npm run sync:foundry -- --source <foundry-root>`. You can also set `FOUNDRY_SOURCE=<foundry-root>`.

@@ -4,7 +4,7 @@ This repository is the standalone distribution surface for OpenClaw role configu
 
 ## Rules
 
-- Treat `packs/` and `catalog/` as generated distribution artifacts synced from `/Users/mauricewen/Projects/22-openclaw-foundry`.
+- Treat `packs/` and `catalog/` as generated distribution artifacts synced from an explicit Foundry checkout.
 - Do not edit individual copied pack payloads by hand unless the same fix is also made in the Foundry source.
 - Installer behavior must remain local-first: a copied repository or copied `packs/<id>/` directory must install without network access.
 - Remote install is allowed only when the user explicitly sets `ROLE_PACKS_BASE_URL` or `FOUNDRY_BASE_URL`.

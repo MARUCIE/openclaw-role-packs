@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # OpenClaw Role Packs - local-first installer
-# Pack: prototype-designer
+# Pack: designer
 set -euo pipefail
 
-PACK_ID="prototype-designer"
+PACK_ID="designer"
 SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 REMOTE_BASE="${ROLE_PACKS_BASE_URL:-${FOUNDRY_BASE_URL:-}}"
 AGENT="${OPENCLAW_AGENT:-}"
