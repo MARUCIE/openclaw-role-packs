@@ -37,8 +37,11 @@ for (const packId of selected) {
   }
 
   const manifest = JSON.parse(readFileSync(join(packDir, 'manifest.json'), 'utf8'));
+  const verificationManifest = manifest.deprecated_alias_of
+    ? JSON.parse(readFileSync(join(packsDir, manifest.deprecated_alias_of, 'manifest.json'), 'utf8'))
+    : manifest;
   const missing = [];
-  for (const item of manifest.items) {
+  for (const item of verificationManifest.items) {
     const destination = join(target, item.dst);
     if (!existsSync(destination)) missing.push(item.dst);
   }
@@ -46,8 +49,8 @@ for (const packId of selected) {
     throw new Error(`${packId}: missing installed files: ${missing.join(', ')}`);
   }
 
-  results.push({ packId, target, files: manifest.items.length });
-  console.log(`OK ${packId}: installed ${manifest.items.length} files`);
+  results.push({ packId, target, files: verificationManifest.items.length });
+  console.log(`OK ${packId}: installed ${verificationManifest.items.length} files`);
 }
 
 const summary = {
