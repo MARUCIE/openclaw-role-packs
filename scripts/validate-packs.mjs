@@ -7,7 +7,7 @@ const packsDir = join(root, 'packs');
 const catalogPath = join(root, 'catalog', 'packs.json');
 const skillsCatalogPath = join(root, 'catalog', 'skills.json');
 const required = ['AGENTS.md', 'CLAUDE.md', 'settings.json', 'prompts.md', 'manifest.json', 'install.sh'];
-const forbiddenPublicSource = /(file:\/\/|\/Users\/|C:\\Users\\|~\/Projects)/i;
+const forbiddenPublicSource = /(file:\/\/\/Users\/|\/Users\/|C:[\\/]+Users[\\/]+|~\/Projects)/;
 const legacyPagesInstall = /agent-foundry\.pages\.dev\/packs\/[^"'<\s]+\/install\.sh/i;
 const publicUrl = /^https?:\/\//i;
 
@@ -35,6 +35,21 @@ function walkStrings(value, visit, path = '$') {
       walkStrings(item, visit, `${path}.${key}`);
     }
   }
+}
+
+function listFiles(rootDir) {
+  const files = [];
+  const pending = [rootDir];
+  while (pending.length) {
+    const current = pending.pop();
+    for (const name of readdirSync(current)) {
+      const path = join(current, name);
+      const stat = statSync(path);
+      if (stat.isDirectory()) pending.push(path);
+      else if (stat.isFile()) files.push(path);
+    }
+  }
+  return files.sort();
 }
 
 const catalogRaw = readJson(catalogPath);
@@ -121,6 +136,16 @@ for (const id of dirs) {
     }
     if (forbiddenPublicSource.test(guide)) {
       problems.push(`${id}: guide.html exposes local-only source`);
+    }
+  }
+
+  for (const path of listFiles(packDir)) {
+    const text = readFileSync(path, 'utf8');
+    if (legacyPagesInstall.test(text)) {
+      problems.push(`${id}: ${path.replace(`${packDir}/`, '')} exposes legacy Pages install.sh URL`);
+    }
+    if (forbiddenPublicSource.test(text)) {
+      problems.push(`${id}: ${path.replace(`${packDir}/`, '')} exposes local-only source`);
     }
   }
 }
