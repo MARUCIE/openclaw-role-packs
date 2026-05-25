@@ -1,6 +1,6 @@
 {
   "total": 25,
-  "generated": "2026-05-19T12:09:47.298Z",
+  "generated": "2026-05-19T08:29:19.603Z",
   "packs": [
     {
       "id": "algorithm-engineer",
@@ -898,5 +898,5 @@
     "enriched": 3,
     "certified": 5
   },
-  "tierInjectedAt": "2026-05-19T12:09:47.442Z"
+  "tierInjectedAt": "2026-05-19T08:29:19.766Z"
 }

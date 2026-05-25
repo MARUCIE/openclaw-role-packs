@@ -49,10 +49,10 @@
       "method": "delta-append (additive, non-destructive)"
     },
     "lastDeployRetry": "2026-05-16T08:59:39Z",
-    "reconciledAt": "2026-05-19T12:09:47.658521+00:00",
+    "reconciledAt": "2026-05-19T08:29:20.019597+00:00",
     "reconcileSummary": {
       "phantomsMarked": 0,
-      "skeletonsAdded": 0,
+      "skeletonsAdded": 1,
       "urlProblems": 0,
       "catalogTotal": 760
     }
