@@ -1,0 +1,16 @@
+{
+  "name": "openclaw-role-packs",
+  "version": "2026.05.25",
+  "private": true,
+  "type": "module",
+  "description": "Standalone OpenClaw role configuration packs synced from the local Foundry worktree.",
+  "scripts": {
+    "validate": "node scripts/validate-packs.mjs",
+    "smoke:install": "node scripts/smoke-install.mjs",
+    "regenerate:installers": "node scripts/regenerate-installers.mjs",
+    "sync:foundry": "node scripts/sync-from-foundry.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

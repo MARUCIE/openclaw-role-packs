@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--
+  generated-by: scripts/generate-pack-guides.mjs
+  generated-at: 2026-05-19T12:09:47.587Z
+  style-id: html-document-style (Claude Warm Academic Humanism)
+  route: html-style-router → "Documentation" row → guide/manual/onboarding
+  source: web/public/packs/bigdata-engineer/{manifest.json,CLAUDE.md,prompts.md}
+-->
+<html lang="zh-CN" data-style-id="html-document-style">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="openclaw-foundry/scripts/generate-pack-guides.mjs">
+<title>大数据工程师（Big Data Engineer） · 岗位配置包指导手册 · Agent Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #F3F0E9; --bg-card: #FFFFFF; --bg-card-hover: #FAF8F4; --bg-warm: #EDE8DD;
+  --border: rgba(44,44,46,0.08); --border-strong: rgba(44,44,46,0.15);
+  --text-primary: #2C2C2E; --text-secondary: #5C5C5E; --text-muted: #9B9B9D;
+  --accent: #D67052; --accent-glow: rgba(214,112,82,0.08); --accent-light: rgba(214,112,82,0.06);
+  --mustard: #F0B857; --mustard-light: rgba(240,184,87,0.10);
+  --green: #4A9D6E; --green-light: rgba(74,157,110,0.08);
+  --amber: #D4943A; --red: #C44536;
+  --font-serif: 'Crimson Pro', 'Noto Serif SC', 'Songti SC', 'SimSun', 'STSong', serif;
+  --font: 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  --page-max: 1040px; --page-gutter-total: clamp(32px, 6vw, 96px);
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--font); font-size: 16px; line-height: 1.65; margin: 0; padding: 0; }
+.frame { width: min(var(--page-max), calc(100% - var(--page-gutter-total))); margin-inline: auto; }
+header.cover { padding: 80px 0 60px; border-bottom: 1px solid var(--border-strong); }
+.tag { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--font-serif); font-weight: 800; font-size: 3.2rem; line-height: 1.15; margin: 14px 0 8px; color: var(--text-primary); }
+.subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 720px; margin-top: 10px; }
+.meta-row { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 0.85rem; color: var(--text-muted); }
+.meta-row strong { color: var(--text-primary); font-weight: 700; }
+.tier-pill { display: inline-block; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
+.tier-stub { background: var(--bg-warm); color: var(--text-secondary); }
+.tier-enriched { background: rgba(74,157,110,0.15); color: #2f7050; }
+.tier-certified { background: rgba(240,184,87,0.22); color: #8a5a17; }
+
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+h2 { font-family: var(--font-serif); font-weight: 700; font-size: 1.85rem; margin: 0 0 18px; color: var(--text-primary); }
+h3 { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; margin: 28px 0 12px; color: var(--text-primary); }
+p { margin: 0 0 14px; max-width: 720px; }
+.lead { font-size: 1.15rem; line-height: 1.75; color: var(--text-primary); max-width: 760px; }
+code { background: var(--bg-warm); padding: 2px 6px; border-radius: 4px; font-family: var(--mono); font-size: 0.88rem; }
+pre { background: #1f1d1a; color: #f0e9d8; padding: 18px 22px; border-radius: 10px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.65; }
+pre code { background: transparent; color: inherit; padding: 0; }
+.kit-list { padding-left: 22px; margin: 8px 0 16px; }
+.kit-list li { margin-bottom: 6px; color: var(--text-secondary); }
+.muted { color: var(--text-muted); }
+.card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; padding: 24px 28px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.card.warning { background: var(--mustard-light); border-color: var(--mustard); }
+.card.success { background: var(--green-light); border-color: var(--green); }
+.card.info { background: var(--accent-light); border-color: var(--accent); }
+.kbd-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.kbd-row a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.kbd-row a:hover { background: var(--accent-light); }
+ol { padding-left: 20px; }
+ol li { margin-bottom: 8px; }
+
+/* Skill detail cards (rich rendering of 是什么 / 怎么用 / 架构图) */
+.skill-card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; padding: 28px 32px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.skill-card-stub { background: var(--bg-warm); }
+.skill-card-header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.skill-card-tag { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+.skill-card-path { font-size: 0.78rem; color: var(--text-muted); background: transparent; padding: 0; }
+.skill-card-desc { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 18px; max-width: none; }
+.skill-card-section { margin-top: 18px; }
+.skill-card-section h4 { font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px dashed var(--border); }
+.skill-card-section p { margin: 0 0 8px; max-width: none; color: var(--text-primary); }
+.skill-card-section ol { padding-left: 22px; margin: 6px 0; }
+.skill-card-section ol li { margin-bottom: 4px; color: var(--text-primary); }
+.skill-card-section pre.mermaid { background: var(--bg-warm); color: var(--text-primary); padding: 16px 20px; border-radius: 10px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.5; overflow-x: auto; border: 1px solid var(--border); }
+.skill-card-section pre.mermaid svg { max-width: 100%; height: auto; }
+.skill-card-stub-note { font-size: 0.85rem; margin-top: 12px; }
+footer { text-align: center; padding: 60px 20px 40px; color: var(--text-muted); font-size: 13px; line-height: 2.2; border-top: 1px solid var(--border); }
+footer p { max-width: none; margin: 4px 0; }
+@media (max-width: 720px) {
+  h1 { font-size: 2.2rem; }
+  section { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+<div class="frame">
+<header class="cover">
+  <div class="tag">岗位配置包 · 数据AI职能线 · bigdata-engineer</div>
+  <h1>大数据工程师</h1>
+  <p class="subtitle">面向财税平台的大数据工程师配置。</p>
+  <div class="meta-row">
+    <span class="tier-pill tier-stub" title="尚未达到 PACK_SPEC v1.0 enriched 标准">Stub</span>
+    <span>版本 <strong>4.1.0</strong></span>
+    <span>装包目标 <strong>—</strong> 分钟跑通</span>
+    <span>路由：<strong>html-document-style</strong> · Claude Warm Academic</span>
+  </div>
+</header>
+
+<section>
+<h2>30 秒画像</h2>
+<p class="lead">面向财税平台的大数据工程师配置。</p>
+<p>本指导手册由 <code>scripts/generate-pack-guides.mjs</code> 从 pack 的 <code>manifest.json</code>、
+<code>CLAUDE.md</code>、<code>prompts.md</code> 三份源文件直接生成 — 不是 LLM 写的也不是手工抄的。
+所以你看到的所有命令、文件路径、内容结构都和你 <code>curl … | bash</code> 装到本地的完全一致。</p>
+</section>
+
+<section>
+<h2>装包后第一件事</h2>
+
+<p>本包未在 manifest.json 中声明 <code>first_use_demo</code>。这是 stub-tier 的特征 — 装包成功后请
+回到 <a href="/wall">卡点墙</a> 反馈你想要的第一个"装包后立即能做的事"，下一轮会把它升级为可
+量化的 first_use_demo + expected_output。</p>
+
+</section>
+
+<section>
+<h2>工具包包含什么（Toolkit）</h2>
+<ul class="kit-list"><li><code>skills/bigdata/bigdata-core/SPEC.md</code></li><li><code>skills/bigdata/bigdata-ml/SPEC.md</code></li><li><code>skills/bigdata/bigdata-viz/SPEC.md</code></li><li><code>skills/bigdata/data-pipeline/SPEC.md</code></li><li><code>skills/bigdata/pipeline-triage/SPEC.md</code></li><li><code>skills/bigdata/postgresql-best-practices/SPEC.md</code></li></ul>
+
+<h3>Advisor 角色</h3>
+<ul class="kit-list"><li><code>agents/advisor-meadows.md</code></li><li><code>agents/advisor-hickey.md</code></li></ul>
+</section>
+
+<section>
+<h2>工具详解（每个 skill 是什么 · 怎么用 · 架构图）</h2>
+<p>下面每张卡片对应一个 skill，三段式结构：<strong>是什么</strong>（这个能力的业务效果） · <strong>怎么用</strong>（PM 视角的 3-5 步使用动线） · <strong>架构图</strong>（输入 → 处理 → 产出的 Mermaid 流程图）。装包到本地后，你在 Claude Code 里 <code>claude --skill &lt;skill-name&gt;</code> 调用的内容，就是这些 skill 的全文。</p>
+
+<div class="skill-card" id="skill-bigdata-core">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">bigdata-core</div>
+    <code class="skill-card-path">skills/bigdata/bigdata-core/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Core big data processing toolkit for data teams. Includes Polars, Dask, Vaex for large-scale data processing, ETL pipelines, and distributed computing. Use when working with datasets larger than memory, building data pipelines, or optimizing data processing performance.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>一套面向数据团队的核心处理底座，把 Polars、Dask、Vaex 三种 DataFrame（数据帧）能力按数据规模分层组合，让单机分析、分布式计算（distributed computing）、超大文件惰性扫描共用同一套调用习惯，减少 ETL（抽取-转换-加载）任务的内存溢出与跑批超时。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>按数据规模选引擎：10GB 以下用 Polars 单机跑满 CPU 核心，10–100GB 切换 Polars streaming（流式）或 Dask，100GB 以上交给 Dask 分布式集群兜底。</li><li>优先使用 `scan_*` 系列惰性 API（应用程序接口），让查询计划在物理读盘前完成裁剪和谓词下推，避免一次性把全量数据拉进内存。</li><li>把原始 CSV 落地为 Parquet（列式存储格式），后续读取吞吐通常提升 10 倍以上，并按日期或类别字段分区便于增量处理。</li><li>分布式作业用 `dask.distributed.Client` 启动本地或远程集群，让分组聚合、连接等算子自动切分到 worker（工作节点）执行。</li><li>跑大作业前先在采样数据上验证查询计划与输出列，再放到全量数据上跑，避免一次错算消耗整批资源。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[原始数据 CSV/JSON] --&gt; B[惰性扫描 scan_*]
+  B --&gt; C{规模判断}
+  C --&gt;|&lt;10GB| D[Polars 单机]
+  C --&gt;|10-100GB| E[Polars 流式 / Dask]
+  C --&gt;|&gt;100GB| F[Dask 分布式集群]
+  D --&gt; G[Parquet 输出 + 分区]
+  E --&gt; G
+  F --&gt; G</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-bigdata-ml">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">bigdata-ml</div>
+    <code class="skill-card-path">skills/bigdata/bigdata-ml/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Machine learning toolkit for big data teams. Includes scikit-learn, PyTorch Lightning, Transformers, SHAP for model training, deployment, and interpretation. Use when building ML pipelines, training models, or explaining predictions.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>面向数据团队的端到端 ML（机器学习）工具集，把 scikit-learn 传统建模、PyTorch Lightning 深度训练、Transformers 预训练模型、SHAP（模型可解释性）打包成一致的训练-评估-解释流水线，让分类、NLP（自然语言处理）、可解释性等任务都能进 MLflow（实验追踪）留痕。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>按任务类型选框架：结构化分类回归走 scikit-learn Pipeline，文本任务直接调 Transformers 预训练模型，图像或大模型微调切到 PyTorch Lightning 用 GPU（图形处理器）。</li><li>用 `Pipeline + cross_val_score` 把预处理和模型绑成一个对象，避免训练-推理时特征处理不一致引发的线上漂移。</li><li>大数据训练用 dask-ml 的 `train_test_split` 与分布式估计器，或对线性模型用 `SGDClassifier.partial_fit` 做增量学习，避免一次性把全量样本载入内存。</li><li>关键业务模型必须输出 SHAP 解释（全局 summary + 单样本 force_plot），向产品和合规说明模型为什么这样预测。</li><li>全流程接 MLflow：记录参数、指标、模型工件，让模型版本和训练数据版本绑定，便于回滚和审计。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[原始特征数据] --&gt; B[scikit-learn Pipeline]
+  A --&gt; C[PyTorch Lightning 训练器]
+  A --&gt; D[Transformers 预训练模型]
+  B --&gt; E[SHAP 解释]
+  C --&gt; E
+  D --&gt; E
+  E --&gt; F[MLflow 实验追踪]
+  F --&gt; G[审核 -&gt; 上线]</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-bigdata-viz">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">bigdata-viz</div>
+    <code class="skill-card-path">skills/bigdata/bigdata-viz/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Data visualization toolkit for big data teams. Includes Matplotlib, Seaborn, Plotly for static and interactive charts. Use when creating dashboards, reports, or exploring data visually.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>面向数据团队的可视化套件，把 Matplotlib（精细绘图）、Seaborn（统计可视化）、Plotly（交互图表）按输出场景分层组合，让报告、内部分享、Dashboard（仪表盘）三类产物都能从同一份数据集快速出图，并保持配色和分辨率统一。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>按输出目标选库：纸质报告或论文用 Matplotlib + Seaborn 出 300dpi 静态图，内部分享和 Dashboard 用 Plotly 出 HTML 交互图。</li><li>大数据出图先采样或聚合，再交给绘图库：万级以上原始点先 `sample` 或按类别 `groupby.agg`，避免浏览器卡死和图形语义被噪声淹没。</li><li>探索阶段用 Seaborn `histplot`、`heatmap` 等高阶 API 快速看分布和相关性，正式版再切到 Matplotlib 精细调样式。</li><li>Plotly `express` 接 `hover_data` 暴露关键字段，让业务方在图上直接看到名称、日期、来源，减少回环问数据来源。</li><li>出图前统一规范：标题 14pt、标签 12pt、配色用公司品牌色，报告导出 PDF，分享导出 HTML，避免同一指标多版样式互相打架。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[原始数据帧] --&gt; B[采样 / 聚合]
+  B --&gt; C{输出目标}
+  C --&gt;|报告/论文| D[Matplotlib + Seaborn]
+  C --&gt;|内部分享| E[Plotly 交互图]
+  C --&gt;|Dashboard| F[Plotly + Dash]
+  D --&gt; G[300dpi PDF/PNG]
+  E --&gt; H[HTML 文件]
+  F --&gt; H</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-data-pipeline">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">data-pipeline</div>
+    <code class="skill-card-path">skills/bigdata/data-pipeline/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Design ETL/ELT data pipelines and warehouse architectures. Use when: data pipeline design, &#39;ETL workflow&#39;, data warehouse, batch/stream processing. NOT for: SQL queries (use sql-queries).</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>一套生产级数据管道设计规范，覆盖批处理 ETL（抽取-转换-加载）、流式 ELT（抽取-加载-转换）、数据仓库（data warehouse）三种主流模式，让管道天然具备幂等性（idempotency）、增量加载、行数监控、可控的 schema（数据结构）演进。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>按时延要求选模式：T+1 的离线分析走批处理 ETL，秒级实时走 Kafka/Kinesis 流式 ELT，重计算密集的复杂建模交给 ELT + dbt 在数仓内完成。</li><li>默认走增量加载（按时间戳或自增 ID 切片），只有当 schema 变更或对账失败时才触发全量刷新，避免每天搬全量数据。</li><li>每个阶段写出 `extract / transform / load` 的行数到监控指标，行数对不上立即报警，防止数据静默丢失。</li><li>所有写入算子都做幂等设计（按主键 upsert 或先 delete 再 insert），让任务重跑不会产生重复行。</li><li>Schema 演进只允许加列，不允许在生产环境删列或改列类型，破坏性变更走灰度新表 + 切流方案。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[源系统 API/数据库] --&gt; B[抽取 Extract]
+  B --&gt; C{模式选择}
+  C --&gt;|批 ETL| D[Python/Spark 转换]
+  C --&gt;|流式 ELT| E[Kafka/Kinesis]
+  C --&gt;|仓内 ELT| F[原始层 raw]
+  D --&gt; G[数仓 / 数据湖]
+  E --&gt; G
+  F --&gt; H[dbt 转换 -&gt; 明细层]
+  H --&gt; G</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-pipeline-triage">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">pipeline-triage</div>
+    <code class="skill-card-path">skills/bigdata/pipeline-triage/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Diagnose a failed or degraded AI-Fleet pipeline. Use when: a pipeline health check fails, a cron job stops producing output, a LaunchAgent doesn&#39;t fire, the user reports &#39;X pipeline is broken&#39;, or you see non-zero exit codes in pipeline logs. Also trigger when ai harness health shows RED/ORANGE status for any pipeline. NOT for writing new pipelines — use sprint-pipeline-v2 for that.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>AI-Fleet 数据管道的故障排查手册（runbook），把症状 → 定位 → 修复的诊断流程固化成 4 个阶段，让 LaunchAgent（macOS 启动代理）、cron（定时任务）、webhook（回调钩子）三类调度的失败都能按层定位，避免凭直觉乱改而把好的也带坏。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先在 `configs/pipeline-registry.json` 解析出 pipeline 的 ID、脚本路径、调度方式、`defaultDevice`（默认执行设备），不要用脚本名当 ID 找。</li><li>按 5 层依次排查：触发层（调度是否真的触发）→ 环境层（依赖、API key、Tailscale）→ 脚本层（手动跑能否成功）→ 输出层（产物是否生成）→ 投递层（产物是否到达目的地）。</li><li>检查 `failoverChain`（故障转移链）是否把任务从 VPS（虚拟专用服务器）静默漂到 mini，错把&quot;在跑&quot;当成&quot;健康&quot;。</li><li>健康检查脚本本身可能是坏的，需要交叉看 `outputs/&lt;pipeline-id&gt;/` 实际产物文件大小与时间戳，再下结论。</li><li>输出结构化 triage（分诊）报告：Broken Layer、Root Cause、Evidence、Fix、Prevention、Related，关键链路或动到生产数据时必须升级到 HITL（人在回路）。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[症状: 管道无输出] --&gt; B[Phase1 定位 Pipeline ID]
+  B --&gt; C[Phase2 5层逐层排查]
+  C --&gt; D[Phase3 交叉比对]
+  D --&gt; E{是否生产数据}
+  E --&gt;|否| F[Phase4 输出报告 + 修复]
+  E --&gt;|是| G[升级 HITL 人工审核]</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-postgresql-best-practices">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">postgresql-best-practices</div>
+    <code class="skill-card-path">skills/bigdata/postgresql-best-practices/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">PostgreSQL query optimization, indexing, and schema design. Use when: slow queries, &#39;optimize SQL&#39;, PG performance, index strategy, database tuning. NOT for: schema migration execution (use new-migration).</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>PostgreSQL（关系型数据库）生产实战的优化手册，把查询计划、索引策略、并发连接、schema（表结构）设计的高频坑位写成可执行规则，让慢查询、写锁、JSONB（二进制 JSON）索引膨胀这类问题在上线前就被截住，避免上线后线上慢查告警再来回滚。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>任何慢查询都先跑 `EXPLAIN ANALY</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[业务慢查询] --&gt; B[EXPLAIN ANALYZE 查计划]
+  B --&gt; C{瓶颈类型}
+  C --&gt;|缺索引| D[CREATE INDEX CONCURRENTLY]
+  C --&gt;|JSONB 慢| E[GIN + jsonb_path_ops]
+  C --&gt;|连接爆炸| F[PgBouncer 连接池]
+  D --&gt; G[回归验证: 计划 + 时延]
+  E --&gt; G
+  F --&gt; G</pre>
+  </div>
+  
+</div>
+</section>
+
+<section>
+<h2>多 CLI 安装支持（Claude Code / Codex / Gemini / Hermes / OpenClaw）</h2>
+<p>install.sh v5.1 起支持 <strong>多 CLI agent 自动适配</strong>。同一份 install.sh 可以装到五个目标，靠 <code>--agent</code> 标志或自动检测决定落点：</p>
+<table style="width:100%; border-collapse:collapse; margin:12px 0;">
+  <thead><tr style="background:#F4F1EB; text-align:left;">
+    <th style="padding:8px 12px;">CLI Agent</th>
+    <th style="padding:8px 12px;">默认目录</th>
+    <th style="padding:8px 12px;">安装命令</th>
+  </tr></thead>
+  <tbody>
+    <tr><td style="padding:8px 12px;"><strong>Claude Code</strong></td><td style="padding:8px 12px;"><code>~/.claude/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/bigdata-engineer/install.sh | bash</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Codex CLI</strong></td><td style="padding:8px 12px;"><code>~/.codex/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/bigdata-engineer/install.sh | bash -s -- --agent=codex</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Gemini CLI</strong></td><td style="padding:8px 12px;"><code>~/.gemini/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/bigdata-engineer/install.sh | bash -s -- --agent=gemini</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Hermes agent</strong></td><td style="padding:8px 12px;"><code>~/.hermes/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/bigdata-engineer/install.sh | bash -s -- --agent=hermes</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>OpenClaw</strong></td><td style="padding:8px 12px;"><code>~/.openclaw/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/bigdata-engineer/install.sh | bash -s -- --agent=openclaw</code></td></tr>
+    <tr><td style="padding:8px 12px;">其它 / 自定义</td><td style="padding:8px 12px;"><code>$INSTALL_DEST</code></td><td style="padding:8px 12px;"><code>INSTALL_DEST=/your/dir curl -fsSL ... | bash</code></td></tr>
+  </tbody>
+</table>
+<p class="muted">优先级: <code>INSTALL_DEST</code> 环境变量 → <code>--agent=&lt;X&gt;</code> 标志 → <code>OPENCLAW_AGENT</code> 环境变量 → 自动检测（按 <code>~/.claude</code> → <code>~/.codex</code> → <code>~/.gemini</code> → <code>~/.hermes</code> → <code>~/.openclaw</code> 顺序）→ 默认 claude。</p>
+<p class="muted">artifact 的 <code>dst</code> 路径（<code>skills/</code> · <code>agents/</code> · <code>CLAUDE.md</code> · <code>AGENTS.md</code>）是 Claude + Codex + Gemini + Hermes + OpenClaw 间的共享约定。<code>CLAUDE.md</code> 在 Codex/Gemini/Hermes/OpenClaw 上是惰性文件（不读取，也无害）。</p>
+</section>
+
+<section>
+<h2>常见反模式（从本包 CLAUDE.md 抽取）</h2>
+
+<p class="muted">本包当前在 CLAUDE.md 中尚未达到 ≥5 个反模式信号（PACK_SPEC v1.0 P2 要求）。
+这是它停在 stub-tier 的常见原因之一。如果你装包后撞到一个真实反模式，请到 <a href="/wall">卡点墙</a>
+反馈，下轮会补回来。</p>
+
+</section>
+
+<section>
+<h2>验证标准 / Validation</h2>
+<p>装包之后想确认它"真装上了 + 真能用"，按你用的 CLI 跑对应命令：</p>
+<pre><code># Claude Code（默认）— 确认 ~/.claude 下有本包安装的产物
+ls -la ~/.claude/CLAUDE.md ~/.claude/AGENTS.md ~/.claude/settings.json ~/.claude/prompts.md
+
+# Codex CLI — 确认 ~/.codex 下有本包安装的产物
+ls -la ~/.codex/AGENTS.md ~/.codex/settings.json ~/.codex/skills/
+
+# Gemini CLI — 确认 ~/.gemini 下有本包安装的产物
+ls -la ~/.gemini/AGENTS.md ~/.gemini/settings.json ~/.gemini/skills/
+
+# Hermes agent — 确认 ~/.hermes 下有本包安装的产物
+ls -la ~/.hermes/AGENTS.md ~/.hermes/settings.json ~/.hermes/skills/
+
+# OpenClaw — 确认 ~/.openclaw 下有本包安装的产物
+ls -la ~/.openclaw/AGENTS.md ~/.openclaw/settings.json ~/.openclaw/skills/
+
+# 验证 manifest 声明的 first_use_demo 命令能 dry-run 起来（Claude 示例）
+claude --help | head -3
+
+# 回到 /packs，登录后复制本包安装命令
+#    公开直连 /packs/bigdata-engineer/install.sh 已关闭，安装脚本由 Worker 校验后发放
+</code></pre>
+</section>
+
+<section>
+<h2>卡住时去哪里</h2>
+<div class="kbd-row">
+  <a href="/wall">→ 卡点墙：登记你的卡点 / 看别人的解法</a>
+  <a href="/packs">← 回到岗位包目录</a>
+  <a href="https://github.com/MARUCIE/openclaw-foundry/issues" target="_blank" rel="noreferrer">在 GitHub 提 Issue</a>
+</div>
+<p style="margin-top:16px;">本指导手册自动跟随 pack 内容更新；下次 <code>git push</code> + Cloudflare Pages
+重新部署之后会自动重生成。如果发现内容过时，先看 pack 的 <code>CLAUDE.md</code> / <code>prompts.md</code>
+是不是已经改了 — 这里是它们的派生视图。</p>
+</section>
+
+<footer>
+  <p>OpenClaw Foundry — 大数据工程师 岗位包指导手册</p>
+  <p>Maurice | maurice_wen@proton.me</p>
+  <p style="font-size:12px; margin-top:8px;">生成时间：2026-05-19 12:09:47 UTC · 数据来源：本包 manifest.json + CLAUDE.md + skills/**/{SKILL,SPEC}.md</p>
+</footer>
+</div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.4/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FAF8F4',
+      primaryTextColor: '#2C2C2E',
+      primaryBorderColor: '#D67052',
+      lineColor: '#5C5C5E',
+      secondaryColor: '#EDE8DD',
+      tertiaryColor: '#FFFFFF',
+      fontFamily: "'Source Sans 3','Noto Sans SC',sans-serif"
+    }
+  });
+</script>
+</body>
+</html>

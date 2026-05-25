@@ -1,0 +1,18 @@
+{
+  "memory": {
+    "chunks": 72
+  },
+  "autonomy": {
+    "level": "L1-guided"
+  },
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/mcp-remote",
+        "https://mcp.github.com/sse"
+      ]
+    }
+  }
+}

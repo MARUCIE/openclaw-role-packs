@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--
+  generated-by: scripts/generate-pack-guides.mjs
+  generated-at: 2026-05-19T12:09:47.610Z
+  style-id: html-document-style (Claude Warm Academic Humanism)
+  route: html-style-router → "Documentation" row → guide/manual/onboarding
+  source: web/public/packs/spellbook-ai-app-engineer/{manifest.json,CLAUDE.md,prompts.md}
+-->
+<html lang="zh-CN" data-style-id="html-document-style">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="openclaw-foundry/scripts/generate-pack-guides.mjs">
+<title>AI 应用工程师（AI App Engineer） · 岗位配置包指导手册 · Agent Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #F3F0E9; --bg-card: #FFFFFF; --bg-card-hover: #FAF8F4; --bg-warm: #EDE8DD;
+  --border: rgba(44,44,46,0.08); --border-strong: rgba(44,44,46,0.15);
+  --text-primary: #2C2C2E; --text-secondary: #5C5C5E; --text-muted: #9B9B9D;
+  --accent: #D67052; --accent-glow: rgba(214,112,82,0.08); --accent-light: rgba(214,112,82,0.06);
+  --mustard: #F0B857; --mustard-light: rgba(240,184,87,0.10);
+  --green: #4A9D6E; --green-light: rgba(74,157,110,0.08);
+  --amber: #D4943A; --red: #C44536;
+  --font-serif: 'Crimson Pro', 'Noto Serif SC', 'Songti SC', 'SimSun', 'STSong', serif;
+  --font: 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  --page-max: 1040px; --page-gutter-total: clamp(32px, 6vw, 96px);
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--font); font-size: 16px; line-height: 1.65; margin: 0; padding: 0; }
+.frame { width: min(var(--page-max), calc(100% - var(--page-gutter-total))); margin-inline: auto; }
+header.cover { padding: 80px 0 60px; border-bottom: 1px solid var(--border-strong); }
+.tag { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--font-serif); font-weight: 800; font-size: 3.2rem; line-height: 1.15; margin: 14px 0 8px; color: var(--text-primary); }
+.subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 720px; margin-top: 10px; }
+.meta-row { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 0.85rem; color: var(--text-muted); }
+.meta-row strong { color: var(--text-primary); font-weight: 700; }
+.tier-pill { display: inline-block; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
+.tier-stub { background: var(--bg-warm); color: var(--text-secondary); }
+.tier-enriched { background: rgba(74,157,110,0.15); color: #2f7050; }
+.tier-certified { background: rgba(240,184,87,0.22); color: #8a5a17; }
+
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+h2 { font-family: var(--font-serif); font-weight: 700; font-size: 1.85rem; margin: 0 0 18px; color: var(--text-primary); }
+h3 { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; margin: 28px 0 12px; color: var(--text-primary); }
+p { margin: 0 0 14px; max-width: 720px; }
+.lead { font-size: 1.15rem; line-height: 1.75; color: var(--text-primary); max-width: 760px; }
+code { background: var(--bg-warm); padding: 2px 6px; border-radius: 4px; font-family: var(--mono); font-size: 0.88rem; }
+pre { background: #1f1d1a; color: #f0e9d8; padding: 18px 22px; border-radius: 10px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.65; }
+pre code { background: transparent; color: inherit; padding: 0; }
+.kit-list { padding-left: 22px; margin: 8px 0 16px; }
+.kit-list li { margin-bottom: 6px; color: var(--text-secondary); }
+.muted { color: var(--text-muted); }
+.card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; padding: 24px 28px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.card.warning { background: var(--mustard-light); border-color: var(--mustard); }
+.card.success { background: var(--green-light); border-color: var(--green); }
+.card.info { background: var(--accent-light); border-color: var(--accent); }
+.kbd-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.kbd-row a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.kbd-row a:hover { background: var(--accent-light); }
+ol { padding-left: 20px; }
+ol li { margin-bottom: 8px; }
+
+/* Skill detail cards (rich rendering of 是什么 / 怎么用 / 架构图) */
+.skill-card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; padding: 28px 32px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.skill-card-stub { background: var(--bg-warm); }
+.skill-card-header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.skill-card-tag { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+.skill-card-path { font-size: 0.78rem; color: var(--text-muted); background: transparent; padding: 0; }
+.skill-card-desc { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 18px; max-width: none; }
+.skill-card-section { margin-top: 18px; }
+.skill-card-section h4 { font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px dashed var(--border); }
+.skill-card-section p { margin: 0 0 8px; max-width: none; color: var(--text-primary); }
+.skill-card-section ol { padding-left: 22px; margin: 6px 0; }
+.skill-card-section ol li { margin-bottom: 4px; color: var(--text-primary); }
+.skill-card-section pre.mermaid { background: var(--bg-warm); color: var(--text-primary); padding: 16px 20px; border-radius: 10px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.5; overflow-x: auto; border: 1px solid var(--border); }
+.skill-card-section pre.mermaid svg { max-width: 100%; height: auto; }
+.skill-card-stub-note { font-size: 0.85rem; margin-top: 12px; }
+footer { text-align: center; padding: 60px 20px 40px; color: var(--text-muted); font-size: 13px; line-height: 2.2; border-top: 1px solid var(--border); }
+footer p { max-width: none; margin: 4px 0; }
+@media (max-width: 720px) {
+  h1 { font-size: 2.2rem; }
+  section { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+<div class="frame">
+<header class="cover">
+  <div class="tag">岗位配置包 · 数据AI职能线 · spellbook-ai-app-engineer</div>
+  <h1>AI 应用工程师</h1>
+  <p class="subtitle">Agentex / LangGraph / OpenAI Agents SDK + 复杂文档 RAG 调试 + 内存架构。</p>
+  <div class="meta-row">
+    <span class="tier-pill tier-stub" title="尚未达到 PACK_SPEC v1.0 enriched 标准">Stub</span>
+    <span>版本 <strong>1.1.0</strong></span>
+    <span>装包目标 <strong>—</strong> 分钟跑通</span>
+    <span>路由：<strong>html-document-style</strong> · Claude Warm Academic</span>
+  </div>
+</header>
+
+<section>
+<h2>30 秒画像</h2>
+<p class="lead">Agentex / LangGraph / OpenAI Agents SDK + 复杂文档 RAG 调试 + 内存架构。</p>
+<p>本指导手册由 <code>scripts/generate-pack-guides.mjs</code> 从 pack 的 <code>manifest.json</code>、
+<code>CLAUDE.md</code>、<code>prompts.md</code> 三份源文件直接生成 — 不是 LLM 写的也不是手工抄的。
+所以你看到的所有命令、文件路径、内容结构都和你 <code>curl … | bash</code> 装到本地的完全一致。</p>
+</section>
+
+<section>
+<h2>装包后第一件事</h2>
+
+<p>本包未在 manifest.json 中声明 <code>first_use_demo</code>。这是 stub-tier 的特征 — 装包成功后请
+回到 <a href="/wall">卡点墙</a> 反馈你想要的第一个"装包后立即能做的事"，下一轮会把它升级为可
+量化的 first_use_demo + expected_output。</p>
+
+</section>
+
+<section>
+<h2>工具包包含什么（Toolkit）</h2>
+<ul class="kit-list"><li><code>skills/spellbook/agentex/SKILL.md</code></li><li><code>skills/spellbook/langgraph/SKILL.md</code></li><li><code>skills/spellbook/openai-agents/SKILL.md</code></li><li><code>skills/spellbook/complex-doc-rag/SKILL.md</code></li><li><code>skills/spellbook/promptbase/SKILL.md</code></li><li><code>skills/spellbook/memory-map/SKILL.md</code></li></ul>
+
+<h3>Advisor 角色</h3>
+<p class="muted">本包暂未带 advisor 角色。</p>
+</section>
+
+<section>
+<h2>工具详解（每个 skill 是什么 · 怎么用 · 架构图）</h2>
+<p>下面每张卡片对应一个 skill，三段式结构：<strong>是什么</strong>（这个能力的业务效果） · <strong>怎么用</strong>（PM 视角的 3-5 步使用动线） · <strong>架构图</strong>（输入 → 处理 → 产出的 Mermaid 流程图）。装包到本地后，你在 Claude Code 里 <code>claude --skill &lt;skill-name&gt;</code> 调用的内容，就是这些 skill 的全文。</p>
+
+<div class="skill-card" id="skill-agentex">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">agentex</div>
+    <code class="skill-card-path">skills/agentex/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when building, wiring, or debugging an Agentex agent — choosing agent type, configuring acp.py and manifest.yaml, using adk.messages or adk.state, or resolving Windows-specific setup issues.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>Agentex 是把 AI 智能体（AI Agent）变成可注册、可编排、可观测的后端服务的一套平台范式。</p><p>用它的效果是：智能体不再是一段散落的脚本，而是带状态、带消息、带工作流的产品功能。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先按业务场景挑选合适的智能体类型（对话型、工作流型、批处理型），让后续设计有清晰边界。</li><li>在 acp.py 与 manifest.yaml 里把入口、状态、工具声明清楚，让平台能正确注册并调度这个智能体。</li><li>用 adk.messages（消息接口）传输用户输入与系统响应，让对话过程可追溯、可重放。</li><li>用 adk.state（状态接口）持久化业务上下文，让多轮交互不会因为重启而丢失记忆。</li><li>在本地拉起 FastAPI 后端与 Temporal 工作流后，再把智能体跑起来做端到端验证。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  用户输入 --&gt; 智能体注册
+  智能体注册 --&gt; 工作流编排
+  工作流编排 --&gt; 状态存储
+  工作流编排 --&gt; 消息接口
+  消息接口 --&gt; 用户输入</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-langgraph">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">langgraph</div>
+    <code class="skill-card-path">skills/langgraph/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when building or debugging LangGraph workflows — designing state graphs, adding conditional routing, wiring checkpointers, streaming tokens, implementing human-in-the-loop interrupts, or coordinating multi-agent subgraphs.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>LangGraph 是用状态图（State Graph）来描述多步智能体流程的编排框架。</p><p>用它的效果是：复杂的决策、分支、循环不再藏在 if-else 里，而是变成一张可视化、可单步调试的图。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先把业务流程拆成节点（一个节点 = 一个明确职责），让每一步的输入输出都有契约。</li><li>用条件边（Conditional Edge）描述分支与循环，让回退与重试逻辑显式而非散落。</li><li>把全局状态（State）建模成 TypedDict 或 Pydantic 模型，让每一次状态更新都可追踪。</li><li>在关键节点接入人工审核断点（Human-in-the-loop），让高风险动作有人类签字才放行。</li><li>用图遍历日志做事后回放，让失败案例能复现、能归因、能写进回归测试。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  起点 --&gt; 决策节点
+  决策节点 --&gt; 工具调用
+  决策节点 --&gt; 人工审核
+  工具调用 --&gt; 状态更新
+  人工审核 --&gt; 状态更新
+  状态更新 --&gt; 终点</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-openai-agents">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">openai-agents</div>
+    <code class="skill-card-path">skills/openai-agents/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when building or debugging OpenAI Agents SDK workflows — defining agents with tools and handoffs, wiring typed context, streaming responses, adding guardrails, or integrating with the Agentex ADK.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>OpenAI Agents SDK 是 OpenAI 官方提供的智能体编排库，把工具调用、流程切换、追踪都内置好。</p><p>用它的效果是：开发者只关心业务逻辑，平台层负责工具路由、状态传递、可观测性。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先把工具按业务职责注册到 Agent，让模型在选择工具时有清晰的语义边界。</li><li>用 Handoffs 机制描述多智能体协作，让复杂任务可以在专业智能体间接力完成。</li><li>通过 Guardrails 设置输入输出校验，让不合规的请求或响应在早期被拦截。</li><li>打开 Tracing 收集执行链路，让每一次决策都能在控制台里复盘。</li><li>上线前用真实场景做流式（Streaming）压测，确保延迟与稳定性达标。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  用户请求 --&gt; 主智能体
+  主智能体 --&gt; 工具调用
+  主智能体 --&gt; 协作转交
+  协作转交 --&gt; 专业智能体
+  专业智能体 --&gt; 结果汇总
+  结果汇总 --&gt; 链路追踪</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-complex-doc-rag">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">complex-doc-rag</div>
+    <code class="skill-card-path">skills/complex-doc-rag/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when building a RAG pipeline that ingests PDFs, Excel, CSV, or images — especially when debugging silent data loss, choosing between OCR tools, or handling edge cases like scanned pages, merged cells, or embedded charts.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>Complex Doc RAG 是给复杂文档（合同、年报、技术规范）做高保真检索增强生成的工程模板。</p><p>用它的效果是：模型回答能引用到具体段落而不是泛泛而谈，把幻觉风险压到可控范围。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先按文档结构（章节、表格、附录）做语义切片，让检索粒度匹配业务问题颗粒度。</li><li>在切片层叠加元数据（来源、版本、章节路径），让检索结果天然带上溯源信息。</li><li>用向量库与稀疏索引混合检索，把语义相似与关键词命中两条召回链路都打开。</li><li>在生成阶段做引用拼接与置信度标注，让回答自带可核验的页码与原文片段。</li><li>上线前用真实业务问答集跑回归，确保版本切换不会让答案质量倒退。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  原始文档 --&gt; 语义切片
+  语义切片 --&gt; 向量索引
+  语义切片 --&gt; 关键词索引
+  向量索引 --&gt; 混合检索
+  关键词索引 --&gt; 混合检索
+  混合检索 --&gt; 引用生成</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-promptbase">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">promptbase</div>
+    <code class="skill-card-path">skills/promptbase/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when writing, reviewing, or adapting a Claude Code skill for sale on PromptBase — checking scope, audience breadth, rejection risk, description quality, examples, and setup instructions.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>Promptbase 是把提示词（Prompt）当代码管理的工程实践：版本化、可测试、可灰度。</p><p>用它的效果是：提示词的每次改动都有 diff、有评测、有回滚，不再靠口口相传。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>把每个提示词独立成文件，让 Git 历史记录每次表达调整的来龙去脉。</li><li>为每个提示词配套 golden 测试集，让效果变化在合并前就被自动发现。</li><li>用模板变量隔离稳定文案与动态参数，让提示词可以被多场景复用。</li><li>通过灰度发布在小流量上验证新版本，让大盘风险被控制在可承受的范围内。</li><li>把每次 A/B 实验的结论写回提示词的 changelog，让团队沉淀经验而非重复造轮。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  提示词草稿 --&gt; 版本仓库
+  版本仓库 --&gt; 评测套件
+  评测套件 --&gt; 灰度发布
+  灰度发布 --&gt; 生产流量
+  生产流量 --&gt; 经验回写</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-memory-map">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">memory-map</div>
+    <code class="skill-card-path">skills/memory-map/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when installing or configuring memory_map, writing CLAUDE.md session-setup instructions, choosing what to save in memory vs history, managing cross-project memory, tuning compression, or troubleshooting why Claude isn&#39;t loading context at session start.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>Memory Map 是给智能体安装长期记忆与情景记忆（Episodic Memory）的工程脚手架。</p><p>用它的效果是：智能体跨会话也能记住用户偏好、历史决策、未完成事项，告别金鱼脑。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先按记忆类型（事实型、偏好型、事件型）分库存储，让检索时按需取用而不是混在一起。</li><li>在写入时做去重与冲突检测，让相同信息不会被反复落库污染检索质量。</li><li>为每条记忆打上时效性标签（永久、季度、单次），让过期信息能自动降权或淘汰。</li><li>在调用模型前根据当前上下文做记忆召回，把最相关的 3-5 条注入到提示里。</li><li>定期做记忆审计，让无效或敏感的记忆能被人工标记后清理。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  用户输入 --&gt; 记忆召回
+  记忆召回 --&gt; 模型生成
+  模型生成 --&gt; 记忆写入
+  记忆写入 --&gt; 事实库
+  记忆写入 --&gt; 偏好库
+  记忆写入 --&gt; 事件库</pre>
+  </div>
+  
+</div>
+</section>
+
+<section>
+<h2>多 CLI 安装支持（Claude Code / Codex / Gemini / Hermes / OpenClaw）</h2>
+<p>install.sh v5.1 起支持 <strong>多 CLI agent 自动适配</strong>。同一份 install.sh 可以装到五个目标，靠 <code>--agent</code> 标志或自动检测决定落点：</p>
+<table style="width:100%; border-collapse:collapse; margin:12px 0;">
+  <thead><tr style="background:#F4F1EB; text-align:left;">
+    <th style="padding:8px 12px;">CLI Agent</th>
+    <th style="padding:8px 12px;">默认目录</th>
+    <th style="padding:8px 12px;">安装命令</th>
+  </tr></thead>
+  <tbody>
+    <tr><td style="padding:8px 12px;"><strong>Claude Code</strong></td><td style="padding:8px 12px;"><code>~/.claude/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/spellbook-ai-app-engineer/install.sh | bash</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Codex CLI</strong></td><td style="padding:8px 12px;"><code>~/.codex/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/spellbook-ai-app-engineer/install.sh | bash -s -- --agent=codex</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Gemini CLI</strong></td><td style="padding:8px 12px;"><code>~/.gemini/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/spellbook-ai-app-engineer/install.sh | bash -s -- --agent=gemini</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Hermes agent</strong></td><td style="padding:8px 12px;"><code>~/.hermes/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/spellbook-ai-app-engineer/install.sh | bash -s -- --agent=hermes</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>OpenClaw</strong></td><td style="padding:8px 12px;"><code>~/.openclaw/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/spellbook-ai-app-engineer/install.sh | bash -s -- --agent=openclaw</code></td></tr>
+    <tr><td style="padding:8px 12px;">其它 / 自定义</td><td style="padding:8px 12px;"><code>$INSTALL_DEST</code></td><td style="padding:8px 12px;"><code>INSTALL_DEST=/your/dir curl -fsSL ... | bash</code></td></tr>
+  </tbody>
+</table>
+<p class="muted">优先级: <code>INSTALL_DEST</code> 环境变量 → <code>--agent=&lt;X&gt;</code> 标志 → <code>OPENCLAW_AGENT</code> 环境变量 → 自动检测（按 <code>~/.claude</code> → <code>~/.codex</code> → <code>~/.gemini</code> → <code>~/.hermes</code> → <code>~/.openclaw</code> 顺序）→ 默认 claude。</p>
+<p class="muted">artifact 的 <code>dst</code> 路径（<code>skills/</code> · <code>agents/</code> · <code>CLAUDE.md</code> · <code>AGENTS.md</code>）是 Claude + Codex + Gemini + Hermes + OpenClaw 间的共享约定。<code>CLAUDE.md</code> 在 Codex/Gemini/Hermes/OpenClaw 上是惰性文件（不读取，也无害）。</p>
+</section>
+
+<section>
+<h2>常见反模式（从本包 CLAUDE.md 抽取）</h2>
+
+<p class="muted">本包当前在 CLAUDE.md 中尚未达到 ≥5 个反模式信号（PACK_SPEC v1.0 P2 要求）。
+这是它停在 stub-tier 的常见原因之一。如果你装包后撞到一个真实反模式，请到 <a href="/wall">卡点墙</a>
+反馈，下轮会补回来。</p>
+
+</section>
+
+<section>
+<h2>验证标准 / Validation</h2>
+<p>装包之后想确认它"真装上了 + 真能用"，按你用的 CLI 跑对应命令：</p>
+<pre><code># Claude Code（默认）— 确认 ~/.claude 下有本包安装的产物
+ls -la ~/.claude/CLAUDE.md ~/.claude/AGENTS.md ~/.claude/settings.json ~/.claude/prompts.md
+
+# Codex CLI — 确认 ~/.codex 下有本包安装的产物
+ls -la ~/.codex/AGENTS.md ~/.codex/settings.json ~/.codex/skills/
+
+# Gemini CLI — 确认 ~/.gemini 下有本包安装的产物
+ls -la ~/.gemini/AGENTS.md ~/.gemini/settings.json ~/.gemini/skills/
+
+# Hermes agent — 确认 ~/.hermes 下有本包安装的产物
+ls -la ~/.hermes/AGENTS.md ~/.hermes/settings.json ~/.hermes/skills/
+
+# OpenClaw — 确认 ~/.openclaw 下有本包安装的产物
+ls -la ~/.openclaw/AGENTS.md ~/.openclaw/settings.json ~/.openclaw/skills/
+
+# 验证 manifest 声明的 first_use_demo 命令能 dry-run 起来（Claude 示例）
+claude --help | head -3
+
+# 回到 /packs，登录后复制本包安装命令
+#    公开直连 /packs/spellbook-ai-app-engineer/install.sh 已关闭，安装脚本由 Worker 校验后发放
+</code></pre>
+</section>
+
+<section>
+<h2>卡住时去哪里</h2>
+<div class="kbd-row">
+  <a href="/wall">→ 卡点墙：登记你的卡点 / 看别人的解法</a>
+  <a href="/packs">← 回到岗位包目录</a>
+  <a href="https://github.com/MARUCIE/openclaw-foundry/issues" target="_blank" rel="noreferrer">在 GitHub 提 Issue</a>
+</div>
+<p style="margin-top:16px;">本指导手册自动跟随 pack 内容更新；下次 <code>git push</code> + Cloudflare Pages
+重新部署之后会自动重生成。如果发现内容过时，先看 pack 的 <code>CLAUDE.md</code> / <code>prompts.md</code>
+是不是已经改了 — 这里是它们的派生视图。</p>
+</section>
+
+<footer>
+  <p>OpenClaw Foundry — AI 应用工程师 岗位包指导手册</p>
+  <p>Maurice | maurice_wen@proton.me</p>
+  <p style="font-size:12px; margin-top:8px;">生成时间：2026-05-19 12:09:47 UTC · 数据来源：本包 manifest.json + CLAUDE.md + skills/**/{SKILL,SPEC}.md</p>
+</footer>
+</div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.4/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FAF8F4',
+      primaryTextColor: '#2C2C2E',
+      primaryBorderColor: '#D67052',
+      lineColor: '#5C5C5E',
+      secondaryColor: '#EDE8DD',
+      tertiaryColor: '#FFFFFF',
+      fontFamily: "'Source Sans 3','Noto Sans SC',sans-serif"
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!--
+  generated-by: scripts/generate-pack-guides.mjs
+  generated-at: 2026-05-19T12:09:47.608Z
+  style-id: html-document-style (Claude Warm Academic Humanism)
+  route: html-style-router → "Documentation" row → guide/manual/onboarding
+  source: web/public/packs/scenario-planner/{manifest.json,CLAUDE.md,prompts.md}
+-->
+<html lang="zh-CN" data-style-id="html-document-style">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="openclaw-foundry/scripts/generate-pack-guides.mjs">
+<title>场景规划师（Scenario Planner） · 岗位配置包指导手册 · Agent Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #F3F0E9; --bg-card: #FFFFFF; --bg-card-hover: #FAF8F4; --bg-warm: #EDE8DD;
+  --border: rgba(44,44,46,0.08); --border-strong: rgba(44,44,46,0.15);
+  --text-primary: #2C2C2E; --text-secondary: #5C5C5E; --text-muted: #9B9B9D;
+  --accent: #D67052; --accent-glow: rgba(214,112,82,0.08); --accent-light: rgba(214,112,82,0.06);
+  --mustard: #F0B857; --mustard-light: rgba(240,184,87,0.10);
+  --green: #4A9D6E; --green-light: rgba(74,157,110,0.08);
+  --amber: #D4943A; --red: #C44536;
+  --font-serif: 'Crimson Pro', 'Noto Serif SC', 'Songti SC', 'SimSun', 'STSong', serif;
+  --font: 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  --page-max: 1040px; --page-gutter-total: clamp(32px, 6vw, 96px);
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--font); font-size: 16px; line-height: 1.65; margin: 0; padding: 0; }
+.frame { width: min(var(--page-max), calc(100% - var(--page-gutter-total))); margin-inline: auto; }
+header.cover { padding: 80px 0 60px; border-bottom: 1px solid var(--border-strong); }
+.tag { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--font-serif); font-weight: 800; font-size: 3.2rem; line-height: 1.15; margin: 14px 0 8px; color: var(--text-primary); }
+.subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 720px; margin-top: 10px; }
+.meta-row { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 0.85rem; color: var(--text-muted); }
+.meta-row strong { color: var(--text-primary); font-weight: 700; }
+.tier-pill { display: inline-block; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
+.tier-stub { background: var(--bg-warm); color: var(--text-secondary); }
+.tier-enriched { background: rgba(74,157,110,0.15); color: #2f7050; }
+.tier-certified { background: rgba(240,184,87,0.22); color: #8a5a17; }
+
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+h2 { font-family: var(--font-serif); font-weight: 700; font-size: 1.85rem; margin: 0 0 18px; color: var(--text-primary); }
+h3 { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; margin: 28px 0 12px; color: var(--text-primary); }
+p { margin: 0 0 14px; max-width: 720px; }
+.lead { font-size: 1.15rem; line-height: 1.75; color: var(--text-primary); max-width: 760px; }
+code { background: var(--bg-warm); padding: 2px 6px; border-radius: 4px; font-family: var(--mono); font-size: 0.88rem; }
+pre { background: #1f1d1a; color: #f0e9d8; padding: 18px 22px; border-radius: 10px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.65; }
+pre code { background: transparent; color: inherit; padding: 0; }
+.kit-list { padding-left: 22px; margin: 8px 0 16px; }
+.kit-list li { margin-bottom: 6px; color: var(--text-secondary); }
+.muted { color: var(--text-muted); }
+.card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; padding: 24px 28px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.card.warning { background: var(--mustard-light); border-color: var(--mustard); }
+.card.success { background: var(--green-light); border-color: var(--green); }
+.card.info { background: var(--accent-light); border-color: var(--accent); }
+.kbd-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.kbd-row a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.kbd-row a:hover { background: var(--accent-light); }
+ol { padding-left: 20px; }
+ol li { margin-bottom: 8px; }
+
+/* Skill detail cards (rich rendering of 是什么 / 怎么用 / 架构图) */
+.skill-card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; padding: 28px 32px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.skill-card-stub { background: var(--bg-warm); }
+.skill-card-header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.skill-card-tag { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+.skill-card-path { font-size: 0.78rem; color: var(--text-muted); background: transparent; padding: 0; }
+.skill-card-desc { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 18px; max-width: none; }
+.skill-card-section { margin-top: 18px; }
+.skill-card-section h4 { font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px dashed var(--border); }
+.skill-card-section p { margin: 0 0 8px; max-width: none; color: var(--text-primary); }
+.skill-card-section ol { padding-left: 22px; margin: 6px 0; }
+.skill-card-section ol li { margin-bottom: 4px; color: var(--text-primary); }
+.skill-card-section pre.mermaid { background: var(--bg-warm); color: var(--text-primary); padding: 16px 20px; border-radius: 10px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.5; overflow-x: auto; border: 1px solid var(--border); }
+.skill-card-section pre.mermaid svg { max-width: 100%; height: auto; }
+.skill-card-stub-note { font-size: 0.85rem; margin-top: 12px; }
+footer { text-align: center; padding: 60px 20px 40px; color: var(--text-muted); font-size: 13px; line-height: 2.2; border-top: 1px solid var(--border); }
+footer p { max-width: none; margin: 4px 0; }
+@media (max-width: 720px) {
+  h1 { font-size: 2.2rem; }
+  section { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+<div class="frame">
+<header class="cover">
+  <div class="tag">岗位配置包 · 产品职能线 · scenario-planner</div>
+  <h1>场景规划师</h1>
+  <p class="subtitle">面向财税平台的场景规划师配置。集成 AI 训战工作坊 W3（业务分析 / 场景规划岗）的 5 件工具套件。</p>
+  <div class="meta-row">
+    <span class="tier-pill tier-certified" title="四支柱通过 + spec 1.0 + first_use_demo + 生产 install.sh E2E 验证">已验证 · Certified</span>
+    <span>版本 <strong>4.2.0</strong></span>
+    <span>装包目标 <strong>5</strong> 分钟跑通</span>
+    <span>路由：<strong>html-document-style</strong> · Claude Warm Academic</span>
+  </div>
+</header>
+
+<section>
+<h2>30 秒画像</h2>
+<p class="lead">面向财税平台的场景规划师配置。集成 AI 训战工作坊 W3（业务分析 / 场景规划岗）的 5 件工具套件。</p>
+<p>本指导手册由 <code>scripts/generate-pack-guides.mjs</code> 从 pack 的 <code>manifest.json</code>、
+<code>CLAUDE.md</code>、<code>prompts.md</code> 三份源文件直接生成 — 不是 LLM 写的也不是手工抄的。
+所以你看到的所有命令、文件路径、内容结构都和你 <code>curl … | bash</code> 装到本地的完全一致。</p>
+</section>
+
+<section>
+<h2>装包后第一件事</h2>
+
+<p class="lead">复制下面这条命令到 Claude Code，约 5 分钟应当看到预期输出：</p>
+<pre><code>cd ~/.claude &amp;&amp; claude --skill ansoff-matrix &lt; skills/scenario/ansoff-matrix/SPEC.md</code></pre>
+<p>预期输出：Ansoff 2x2 matrix populated with 4 cells (existing/new × market/product) + 1 GO/NO-GO recommendation per cell, grounded in the SPEC&#39;s inputs</p>
+<div class="card success"><strong>已验证 · Certified</strong> — 本包于 2026-05-16 通过生产环境真实 install.sh E2E 验证（evidence/scenario-planner/2026-05-16-e2e.log）。安装命令、目标路径、依赖项全部经过沙箱实跑确认。</div>
+
+</section>
+
+<section>
+<h2>工具包包含什么（Toolkit）</h2>
+<ul class="kit-list"><li><code>skills/scenario/ansoff-matrix/SPEC.md</code></li><li><code>skills/scenario/beachhead-segment/SPEC.md</code></li><li><code>skills/scenario/business-model/SPEC.md</code></li><li><code>skills/scenario/create-prd/SPEC.md</code></li><li><code>skills/scenario/pm-cmd-business-model/SPEC.md</code></li></ul>
+
+<h3>Advisor 角色</h3>
+<ul class="kit-list"><li><code>agents/advisor-drucker.md</code></li><li><code>agents/advisor-meadows.md</code></li></ul>
+</section>
+
+<section>
+<h2>工具详解（每个 skill 是什么 · 怎么用 · 架构图）</h2>
+<p>下面每张卡片对应一个 skill，三段式结构：<strong>是什么</strong>（这个能力的业务效果） · <strong>怎么用</strong>（PM 视角的 3-5 步使用动线） · <strong>架构图</strong>（输入 → 处理 → 产出的 Mermaid 流程图）。装包到本地后，你在 Claude Code 里 <code>claude --skill &lt;skill-name&gt;</code> 调用的内容，就是这些 skill 的全文。</p>
+
+<div class="skill-card" id="skill-ansoff-matrix">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">ansoff-matrix</div>
+    <code class="skill-card-path">skills/scenario/ansoff-matrix/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Generate an Ansoff Matrix analysis mapping growth strategies across market penetration, market development, product development, and diversification. Use when considering growth options, planning market expansion, or evaluating strategic growth paths.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>帮你把增长选项放进安索夫四象限（Ansoff Matrix，市场渗透 / 市场开发 / 产品开发 / 多元化），把&quot;我们接下来该往哪长&quot;这种含糊讨论，拆成四条清晰可对比的路径。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>把现有产品和现有市场说清楚，避免后面把&quot;新功能&quot;误判成&quot;新产品&quot;。</li><li>给四个象限各列 2–3 条候选增长动作，让团队看到完整选择面。</li><li>用风险、所需能力、潜在收入三个维度给每条动作打分，让取舍有依据。</li><li>选 1–2 个象限作为主战场，剩下的列入观察池，避免战略稀释。</li><li>把选定的方向拆成 90 天内可验证的具体行动，交给业务方认领。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[业务现状盘点] --&gt; B[安索夫四象限分类]
+  B --&gt; C[象限内候选动作打分]
+  C --&gt; D[主战场与观察池]
+  D --&gt; E[90 天行动清单]</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-beachhead-segment">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">beachhead-segment</div>
+    <code class="skill-card-path">skills/scenario/beachhead-segment/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Identify the first beachhead market segment for a product launch. Evaluates segments against burning pain, willingness to pay, winnable market share, and referral potential. Use when choosing a first market, targeting an initial customer segment, or planning market entry strategy.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>帮你从一堆&quot;看起来都不错&quot;的市场切片里，挑出那个真痛、肯付费、能赢、还会主动转介绍的滩头堡（Beachhead，首战市场），让有限的资源砸在最容易拿下的第一仗上。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>列出 5–8 个候选细分市场，避免一上来就锁死答案。</li><li>用四把尺子量每个候选：痛感强度、付费意愿、可赢份额、转介绍潜力。</li><li>给每个候选写一句话客户画像，逼自己说清楚&quot;到底卖给谁&quot;。</li><li>排序后挑出第一名作为滩头堡，第二名留作后备。</li><li>为滩头堡定义产品市场契合度（PMF，Product-Market Fit）的可衡量信号，作为下阶段验证目标。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[候选细分市场列表] --&gt; B[四维评估打分]
+  B --&gt; C[客户画像澄清]
+  C --&gt; D[滩头堡选定]
+  D --&gt; E[PMF 验证信号]</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-business-model">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">business-model</div>
+    <code class="skill-card-path">skills/scenario/business-model/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Generate a Business Model Canvas with all 9 building blocks. Use when creating a business model, documenting how a business creates value, or analyzing an existing business model.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>帮你用商业模式画布（Business Model Canvas，BMC）的九个模块，把&quot;我们这门生意到底怎么挣钱&quot;一张纸说完整，让产品、销售、财务看到的是同一张图。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先把客户细分和价值主张这两块对齐，避免后面所有讨论都建在错误的客户假设上。</li><li>顺着渠道、客户关系、收入来源把&quot;钱怎么进来&quot;画清楚。</li><li>用关键资源、关键活动、关键合作把&quot;价值怎么交付&quot;补齐。</li><li>用成本结构反向校验：账算不算得平，决定模式是否成立。</li><li>标出三个最关键的假设，列入下一步访谈或小范围试点的验证清单。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[客户细分] --&gt; B[价值主张]
+  B --&gt; C[渠道与客户关系]
+  C --&gt; D[收入来源]
+  D --&gt; E[关键资源与活动]
+  E --&gt; F[成本结构校验]
+  F --&gt; G[关键假设清单]</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-create-prd">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">create-prd</div>
+    <code class="skill-card-path">skills/scenario/create-prd/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Create a Product Requirements Document using a comprehensive 8-section template covering problem, objectives, segments, value propositions, solution, and release planning. Use when writing a PRD, documenting product requirements, preparing a feature spec, or reviewing an existing PRD.</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>帮你把脑子里那份&quot;我们要做的产品&quot;翻译成一份八段式产品需求文档（PRD，Product Requirements Document），让工程、设计、业务、老板看完之后对&quot;为什么做、做给谁、做成什么样&quot;有一致的理解。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先把问题陈述写透，把&quot;我们到底在解决谁的什么痛&quot;说成一句话，避免方案先行。</li><li>顺着目标、客户细分、价值主张三段对齐&quot;做这件事的理由&quot;。</li><li>在解决方案段落里只写必要的功能范围，把&quot;可有可无&quot;的需求挪到后续版本。</li><li>用发布计划段落把首版范围和上线节奏定下来，让工程能据此排期。</li><li>写完后做一遍同行评审，把每段读不通顺的地方改清楚，再交给跨职能干系人对齐。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[问题陈述] --&gt; B[目标与客户细分]
+  B --&gt; C[价值主张]
+  C --&gt; D[解决方案范围]
+  D --&gt; E[发布计划]
+  E --&gt; F[同行评审与对齐]</pre>
+  </div>
+  
+</div>
+
+<div class="skill-card" id="skill-pm-cmd-business-model">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">pm-cmd-business-model</div>
+    <code class="skill-card-path">skills/scenario/pm-cmd-business-model/SPEC.md</code>
+  </div>
+  <p class="skill-card-desc">Explore business models using Lean Canvas, Business Model Canvas, Startup Canvas, or Value Proposition frameworks</p>
+  
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>把四张主流商业模式框架——精益画布（Lean Canvas）、商业模式画布（Business Model Canvas，BMC）、创业画布（Startup Canvas）、价值主张画布（Value Proposition Canvas，VPC）——收成一条命令，让你按业务所处阶段挑最合适的那张图来梳理生意。</p>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>先判断业务阶段：早期未验证选 lean，相对成熟选 full，融资讲故事选 startup，需要打磨产品与客户匹配选 value-prop。</li><li>用对应模式调用本命令，给出业务一句话描述，让模型先产出第一版画布。</li><li>拿到画布后，把每一格里&quot;自己其实没想清楚&quot;的内容标出来，列入待验证清单。</li><li>找业务方和销售一起对一遍，把听上去顺但缺证据的格子降级为假设。</li><li>选一到两个最关键假设，安排访谈或小范围试点验证后再回来更新画布。</li></ol>
+  </div>
+  
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+  A[业务阶段判断] --&gt; B[选择四种画布之一]
+  B --&gt; C[首版画布生成]
+  C --&gt; D[假设标注与降级]
+  D --&gt; E[关键假设验证]
+  E --&gt; F[画布迭代]</pre>
+  </div>
+  
+</div>
+</section>
+
+<section>
+<h2>多 CLI 安装支持（Claude Code / Codex / Gemini / Hermes / OpenClaw）</h2>
+<p>install.sh v5.1 起支持 <strong>多 CLI agent 自动适配</strong>。同一份 install.sh 可以装到五个目标，靠 <code>--agent</code> 标志或自动检测决定落点：</p>
+<table style="width:100%; border-collapse:collapse; margin:12px 0;">
+  <thead><tr style="background:#F4F1EB; text-align:left;">
+    <th style="padding:8px 12px;">CLI Agent</th>
+    <th style="padding:8px 12px;">默认目录</th>
+    <th style="padding:8px 12px;">安装命令</th>
+  </tr></thead>
+  <tbody>
+    <tr><td style="padding:8px 12px;"><strong>Claude Code</strong></td><td style="padding:8px 12px;"><code>~/.claude/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/scenario-planner/install.sh | bash</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Codex CLI</strong></td><td style="padding:8px 12px;"><code>~/.codex/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/scenario-planner/install.sh | bash -s -- --agent=codex</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Gemini CLI</strong></td><td style="padding:8px 12px;"><code>~/.gemini/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/scenario-planner/install.sh | bash -s -- --agent=gemini</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Hermes agent</strong></td><td style="padding:8px 12px;"><code>~/.hermes/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/scenario-planner/install.sh | bash -s -- --agent=hermes</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>OpenClaw</strong></td><td style="padding:8px 12px;"><code>~/.openclaw/</code></td><td style="padding:8px 12px;"><code>curl -fsSL .../packs/scenario-planner/install.sh | bash -s -- --agent=openclaw</code></td></tr>
+    <tr><td style="padding:8px 12px;">其它 / 自定义</td><td style="padding:8px 12px;"><code>$INSTALL_DEST</code></td><td style="padding:8px 12px;"><code>INSTALL_DEST=/your/dir curl -fsSL ... | bash</code></td></tr>
+  </tbody>
+</table>
+<p class="muted">优先级: <code>INSTALL_DEST</code> 环境变量 → <code>--agent=&lt;X&gt;</code> 标志 → <code>OPENCLAW_AGENT</code> 环境变量 → 自动检测（按 <code>~/.claude</code> → <code>~/.codex</code> → <code>~/.gemini</code> → <code>~/.hermes</code> → <code>~/.openclaw</code> 顺序）→ 默认 claude。</p>
+<p class="muted">artifact 的 <code>dst</code> 路径（<code>skills/</code> · <code>agents/</code> · <code>CLAUDE.md</code> · <code>AGENTS.md</code>）是 Claude + Codex + Gemini + Hermes + OpenClaw 间的共享约定。<code>CLAUDE.md</code> 在 Codex/Gemini/Hermes/OpenClaw 上是惰性文件（不读取，也无害）。</p>
+</section>
+
+<section>
+<h2>常见反模式（从本包 CLAUDE.md 抽取）</h2>
+
+<p>装包后真正落到工作流之前，先看这些。每一条都是 PACK_SPEC v1.0 P2 支柱里要求的"反模式信号"：</p>
+<ul class="kit-list">
+<li>**行文风格**：先结论后展开，主张 → 证据，禁止&quot;一段话糊弄过去的有趣观察&quot;</li>
+<li>同一段落不允许跨语言混用</li>
+<li>&quot;AI 建议...&quot;、&quot;根据 AI...&quot; 不允许出现在任何客户可见交付物 — 自己签字背书，否则不要写</li>
+<li>没有时间锚的 claim：&quot;recently&quot;、&quot;in the near future&quot; — 给出具体日期，否则不要写</li>
+</ul>
+
+</section>
+
+<section>
+<h2>验证标准 / Validation</h2>
+<p>装包之后想确认它"真装上了 + 真能用"，按你用的 CLI 跑对应命令：</p>
+<pre><code># Claude Code（默认）— 确认 ~/.claude 下有本包安装的产物
+ls -la ~/.claude/CLAUDE.md ~/.claude/AGENTS.md ~/.claude/settings.json ~/.claude/prompts.md
+
+# Codex CLI — 确认 ~/.codex 下有本包安装的产物
+ls -la ~/.codex/AGENTS.md ~/.codex/settings.json ~/.codex/skills/
+
+# Gemini CLI — 确认 ~/.gemini 下有本包安装的产物
+ls -la ~/.gemini/AGENTS.md ~/.gemini/settings.json ~/.gemini/skills/
+
+# Hermes agent — 确认 ~/.hermes 下有本包安装的产物
+ls -la ~/.hermes/AGENTS.md ~/.hermes/settings.json ~/.hermes/skills/
+
+# OpenClaw — 确认 ~/.openclaw 下有本包安装的产物
+ls -la ~/.openclaw/AGENTS.md ~/.openclaw/settings.json ~/.openclaw/skills/
+
+# 验证 manifest 声明的 first_use_demo 命令能 dry-run 起来（Claude 示例）
+claude --help | head -3
+
+# 回到 /packs，登录后复制本包安装命令
+#    公开直连 /packs/scenario-planner/install.sh 已关闭，安装脚本由 Worker 校验后发放
+</code></pre>
+</section>
+
+<section>
+<h2>卡住时去哪里</h2>
+<div class="kbd-row">
+  <a href="/wall">→ 卡点墙：登记你的卡点 / 看别人的解法</a>
+  <a href="/packs">← 回到岗位包目录</a>
+  <a href="https://github.com/MARUCIE/openclaw-foundry/issues" target="_blank" rel="noreferrer">在 GitHub 提 Issue</a>
+</div>
+<p style="margin-top:16px;">本指导手册自动跟随 pack 内容更新；下次 <code>git push</code> + Cloudflare Pages
+重新部署之后会自动重生成。如果发现内容过时，先看 pack 的 <code>CLAUDE.md</code> / <code>prompts.md</code>
+是不是已经改了 — 这里是它们的派生视图。</p>
+</section>
+
+<footer>
+  <p>OpenClaw Foundry — 场景规划师 岗位包指导手册</p>
+  <p>Maurice | maurice_wen@proton.me</p>
+  <p style="font-size:12px; margin-top:8px;">生成时间：2026-05-19 12:09:47 UTC · 数据来源：本包 manifest.json + CLAUDE.md + skills/**/{SKILL,SPEC}.md</p>
+</footer>
+</div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.4/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FAF8F4',
+      primaryTextColor: '#2C2C2E',
+      primaryBorderColor: '#D67052',
+      lineColor: '#5C5C5E',
+      secondaryColor: '#EDE8DD',
+      tertiaryColor: '#FFFFFF',
+      fontFamily: "'Source Sans 3','Noto Sans SC',sans-serif"
+    }
+  });
+</script>
+</body>
+</html>
