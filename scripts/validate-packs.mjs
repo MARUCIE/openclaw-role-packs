@@ -5,7 +5,11 @@ import { spawnSync } from 'node:child_process';
 const root = new URL('..', import.meta.url).pathname;
 const packsDir = join(root, 'packs');
 const catalogPath = join(root, 'catalog', 'packs.json');
+const skillsCatalogPath = join(root, 'catalog', 'skills.json');
 const required = ['AGENTS.md', 'CLAUDE.md', 'settings.json', 'prompts.md', 'manifest.json', 'install.sh'];
+const forbiddenPublicSource = /(file:\/\/|\/Users\/|C:\\Users\\|~\/Projects)/i;
+const legacyPagesInstall = /agent-foundry\.pages\.dev\/packs\/[^"'<\s]+\/install\.sh/i;
+const publicUrl = /^https?:\/\//i;
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'));
@@ -15,6 +19,22 @@ function isSafeRelativePath(value) {
   if (!value || isAbsolute(value)) return false;
   const normalized = normalize(value);
   return normalized !== '..' && !normalized.startsWith('../') && !normalized.includes('/../');
+}
+
+function walkStrings(value, visit, path = '$') {
+  if (typeof value === 'string') {
+    visit(value, path);
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => walkStrings(item, visit, `${path}[${index}]`));
+    return;
+  }
+  if (value && typeof value === 'object') {
+    for (const [key, item] of Object.entries(value)) {
+      walkStrings(item, visit, `${path}.${key}`);
+    }
+  }
 }
 
 const catalogRaw = readJson(catalogPath);
@@ -81,6 +101,49 @@ for (const id of dirs) {
   const shell = spawnSync('bash', ['-n', join(packDir, 'install.sh')], { encoding: 'utf8' });
   if (shell.status !== 0) {
     problems.push(`${id}: install.sh shell syntax failed: ${shell.stderr.trim()}`);
+  }
+
+  const settingsPath = join(packDir, 'settings.json');
+  if (existsSync(settingsPath)) {
+    const settings = readJson(settingsPath);
+    walkStrings(settings, (value, path) => {
+      if (forbiddenPublicSource.test(value)) {
+        problems.push(`${id}: settings.json ${path} exposes local-only source ${value}`);
+      }
+    });
+  }
+
+  const guidePath = join(packDir, 'guide.html');
+  if (existsSync(guidePath)) {
+    const guide = readFileSync(guidePath, 'utf8');
+    if (legacyPagesInstall.test(guide)) {
+      problems.push(`${id}: guide.html exposes legacy Pages install.sh URL`);
+    }
+    if (forbiddenPublicSource.test(guide)) {
+      problems.push(`${id}: guide.html exposes local-only source`);
+    }
+  }
+}
+
+if (existsSync(skillsCatalogPath)) {
+  const skillsCatalog = readJson(skillsCatalogPath);
+  const skills = skillsCatalog.skills || [];
+  for (const skill of skills) {
+    const label = skill.id || skill.name || '<unknown>';
+    const source = String(skill.source || 'clawhub').toLowerCase();
+    if (source === 'local') {
+      problems.push(`catalog/skills.json ${label}: local source is not publicly installable`);
+    }
+    const urls = [skill.url, skill.sourceUrl, skill.repositoryUrl]
+      .filter((value) => typeof value === 'string' && value.length > 0);
+    if (!urls.some((value) => publicUrl.test(value))) {
+      problems.push(`catalog/skills.json ${label}: missing public http(s) source URL`);
+    }
+    for (const value of urls) {
+      if (!publicUrl.test(value) || forbiddenPublicSource.test(value)) {
+        problems.push(`catalog/skills.json ${label}: non-public source URL ${value}`);
+      }
+    }
   }
 }
 
