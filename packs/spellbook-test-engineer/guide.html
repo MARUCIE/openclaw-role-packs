@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--
+  generated-by: scripts/generate-pack-guides.mjs
+  generated-at: 2026-05-26T00:00:00.000Z
+  style-id: html-document-style (Claude Warm Academic Humanism)
+  route: html-style-router → "Documentation" row → guide/manual/onboarding
+  source: web/public/packs/spellbook-test-engineer/{manifest.json,CLAUDE.md,prompts.md}
+-->
+<html lang="zh-CN" data-style-id="html-document-style">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="openclaw-foundry/scripts/generate-pack-guides.mjs">
+<title>测试工程师（历史别名）（Test Engineer (Deprecated Alias)） · 岗位配置包指导手册 · Agent Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #F3F0E9; --bg-card: #FFFFFF; --bg-card-hover: #FAF8F4; --bg-warm: #EDE8DD;
+  --border: rgba(44,44,46,0.08); --border-strong: rgba(44,44,46,0.15);
+  --text-primary: #2C2C2E; --text-secondary: #5C5C5E; --text-muted: #9B9B9D;
+  --accent: #D67052; --accent-glow: rgba(214,112,82,0.08); --accent-light: rgba(214,112,82,0.06);
+  --mustard: #F0B857; --mustard-light: rgba(240,184,87,0.10);
+  --green: #4A9D6E; --green-light: rgba(74,157,110,0.08);
+  --amber: #D4943A; --red: #C44536;
+  --font-serif: 'Crimson Pro', 'Noto Serif SC', 'Songti SC', 'SimSun', 'STSong', serif;
+  --font: 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  --page-max: 1040px; --page-gutter-total: clamp(32px, 6vw, 96px);
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--font); font-size: 16px; line-height: 1.65; margin: 0; padding: 0; }
+.frame { width: min(var(--page-max), calc(100% - var(--page-gutter-total))); margin-inline: auto; }
+header.cover { padding: 80px 0 60px; border-bottom: 1px solid var(--border-strong); }
+.tag { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--font-serif); font-weight: 800; font-size: 3.2rem; line-height: 1.15; margin: 14px 0 8px; color: var(--text-primary); }
+.subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 720px; margin-top: 10px; }
+.meta-row { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 0.85rem; color: var(--text-muted); }
+.meta-row strong { color: var(--text-primary); font-weight: 700; }
+.tier-pill { display: inline-block; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
+.tier-stub { background: var(--bg-warm); color: var(--text-secondary); }
+.tier-enriched { background: rgba(74,157,110,0.15); color: #2f7050; }
+.tier-certified { background: rgba(240,184,87,0.22); color: #8a5a17; }
+
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+h2 { font-family: var(--font-serif); font-weight: 700; font-size: 1.85rem; margin: 0 0 18px; color: var(--text-primary); }
+h3 { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; margin: 28px 0 12px; color: var(--text-primary); }
+p { margin: 0 0 14px; max-width: 720px; }
+.lead { font-size: 1.15rem; line-height: 1.75; color: var(--text-primary); max-width: 760px; }
+code { background: var(--bg-warm); padding: 2px 6px; border-radius: 4px; font-family: var(--mono); font-size: 0.88rem; }
+.install-command { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+pre { background: #1f1d1a; color: #f0e9d8; padding: 18px 22px; border-radius: 10px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.65; }
+pre code { background: transparent; color: inherit; padding: 0; }
+.kit-list { padding-left: 22px; margin: 8px 0 16px; }
+.kit-list li { margin-bottom: 6px; color: var(--text-secondary); }
+.muted { color: var(--text-muted); }
+.card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; padding: 24px 28px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.card.warning { background: var(--mustard-light); border-color: var(--mustard); }
+.card.success { background: var(--green-light); border-color: var(--green); }
+.card.info { background: var(--accent-light); border-color: var(--accent); }
+.kbd-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.kbd-row a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.kbd-row a:hover { background: var(--accent-light); }
+ol { padding-left: 20px; }
+ol li { margin-bottom: 8px; }
+
+/* Skill detail cards (rich rendering of 是什么 / 怎么用 / 架构图) */
+.skill-card { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 14px; padding: 28px 32px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.skill-card-stub { background: var(--bg-warm); }
+.skill-card-header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.skill-card-tag { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+.skill-card-path { font-size: 0.78rem; color: var(--text-muted); background: transparent; padding: 0; }
+.skill-card-desc { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 18px; max-width: none; }
+.skill-card-section { margin-top: 18px; }
+.skill-card-section h4 { font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px dashed var(--border); }
+.skill-card-section p { margin: 0 0 8px; max-width: none; color: var(--text-primary); }
+.skill-card-section ol { padding-left: 22px; margin: 6px 0; }
+.skill-card-section ol li { margin-bottom: 4px; color: var(--text-primary); }
+.skill-card-section pre.mermaid { background: var(--bg-warm); color: var(--text-primary); padding: 16px 20px; border-radius: 10px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.5; overflow-x: auto; border: 1px solid var(--border); }
+.skill-card-section pre.mermaid svg { max-width: 100%; height: auto; }
+.skill-card-stub-note { font-size: 0.85rem; margin-top: 12px; }
+footer { text-align: center; padding: 60px 20px 40px; color: var(--text-muted); font-size: 13px; line-height: 2.2; border-top: 1px solid var(--border); }
+footer p { max-width: none; margin: 4px 0; }
+@media (max-width: 720px) {
+  h1 { font-size: 2.2rem; }
+  section { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+<div class="frame">
+<header class="cover">
+  <div class="tag">岗位配置包 · 研发职能线 · spellbook-test-engineer</div>
+  <h1>测试工程师（历史别名）</h1>
+  <p class="subtitle">此历史别名已合并到 测试工程师（test-engineer）。公开目录只展示 canonical 包，请优先从 /packs 安装 canonical 版本。</p>
+  <div class="meta-row">
+    <span class="tier-pill tier-enriched" title="已申明 spec_version 1.0 + first_use_demo">已富化 · Enriched</span>
+    <span>版本 <strong>1.0.0</strong></span>
+    <span>装包目标 <strong>—</strong> 分钟跑通</span>
+    <span>路由：<strong>html-document-style</strong> · Claude Warm Academic</span>
+  </div>
+</header>
+
+<section>
+<h2>30 秒画像</h2>
+<p class="lead">此历史别名已合并到 测试工程师（test-engineer）。公开目录只展示 canonical 包，请优先从 /packs 安装 canonical 版本。</p>
+<p>本指导手册由 <code>scripts/generate-pack-guides.mjs</code> 从 pack 的 <code>manifest.json</code>、
+<code>CLAUDE.md</code>、<code>prompts.md</code> 三份源文件直接生成 — 不是 LLM 写的也不是手工抄的。
+所以你看到的所有命令、文件路径、内容结构都和你 <code>curl … | bash</code> 装到本地的完全一致。</p>
+</section>
+
+<section>
+<h2>装包后第一件事</h2>
+
+<p>本包未在 manifest.json 中声明 <code>first_use_demo</code>。这是 stub-tier 的特征 — 装包成功后请
+回到 <a href="/wall">卡点墙</a> 反馈你想要的第一个"装包后立即能做的事"，下一轮会把它升级为可
+量化的 first_use_demo + expected_output。</p>
+
+</section>
+
+<section>
+<h2>工具包包含什么（Toolkit）</h2>
+<ul class="kit-list"><li><code>skills/spellbook/test-strategy/SKILL.md</code></li><li><code>skills/spellbook/unit-testing/SKILL.md</code></li><li><code>skills/spellbook/integration-testing/SKILL.md</code></li><li><code>skills/spellbook/performance-testing/SKILL.md</code></li><li><code>skills/spellbook/solution-testing/SKILL.md</code></li></ul>
+
+<h3>Advisor 角色</h3>
+<ul class="kit-list"><li><code>agents/spellbook/test-coverage-agent.md</code></li></ul>
+</section>
+
+<section>
+<h2>工具详解（每个 skill 是什么 · 怎么用 · 架构图）</h2>
+<p>下面每张卡片对应一个 skill，三段式结构：<strong>是什么</strong>（这个能力的业务效果） · <strong>怎么用</strong>（PM 视角的 3-5 步使用动线） · <strong>架构图</strong>（输入 → 处理 → 产出的 Mermaid 流程图）。装包到本地后，你在 Claude Code 里 <code>claude --skill &lt;skill-name&gt;</code> 调用的内容，就是这些 skill 的全文。</p>
+
+<div class="skill-card" id="skill-test-strategy">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">test-strategy</div>
+    <code class="skill-card-path">skills/test-strategy/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when choosing a testing model for a new project, auditing a test suite that is slow or provides low confidence, setting coverage targets, or writing a QA test plan for a release.</p>
+
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>这是一份测试策略规范，覆盖测试金字塔分层、覆盖率目标、慢测试套件治理、发版测试计划，让团队搞清楚什么层级该写多少测试、覆盖率应该卡多严、QA（质量保证）资源怎么分配。</p>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>新项目立项时按测试金字塔比例（单测 70%、集成 20%、E2E 10%）定基线，避免上来就堆 E2E 拖垮速度。</li><li>设定覆盖率目标时按文档的业务等级分档（核心 80%、重要 60%、一般 40%）配置，不搞一刀切。</li><li>测试套件跑得慢时按 80/20 原则找出最耗时的 20% 用例，按规范的拆分与并行方案治理。</li><li>大版本发版前按本文档的发版测试计划模板出 QA 报告，包含覆盖、风险、放行条件三部分。</li><li>每个季度评估测试 ROI（投入产出比），删掉无效用例，把节省的资源投入到高价值场景。</li></ol>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+    A[业务分级] --&gt; B[测试金字塔规划]
+    B --&gt; C[单测 70%]
+    B --&gt; D[集成 20%]
+    B --&gt; E[端到端 10%]
+    C &amp; D &amp; E --&gt; F[发版测试计划]</pre>
+  </div>
+
+</div>
+
+<div class="skill-card" id="skill-unit-testing">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">unit-testing</div>
+    <code class="skill-card-path">skills/unit-testing/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when writing unit tests for a function or module, mocking external dependencies, practising TDD on new business logic, or enforcing a coverage target across a codebase in Python, TypeScript, or Go.</p>
+
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>这是一份单元测试规范，覆盖 Arrange-Act-Assert（准备-执行-断言）测试结构、依赖打桩、参数化测试、TDD（测试驱动开发）流程、覆盖率策略、用例组织方式，让团队在 Python、TypeScript、Go 三种语言下都能写出快、稳、清晰的单测。</p>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>写新函数或模块时按 AAA 三段式编排测试，让每个用例的输入、行为、断言一眼能看清。</li><li>涉及外部依赖（数据库、HTTP、文件系统）时按文档的打桩与 mock 模板隔离，让单测保持毫秒级。</li><li>同一逻辑多组输入用参数化测试代替复制粘贴，按规范的命名约定让失败时看得出是哪组输入挂了。</li><li>新业务实践 TDD 时按红绿重构三阶段循环走，先写失败测试再写实现，让设计跟着测试演进。</li><li>配覆盖率目标时按业务等级分档执行，关键模块卡 80% 以上行覆盖加分支覆盖双指标。</li></ol>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+    A[需求或缺陷] --&gt; B[写失败测试]
+    B --&gt; C[最小实现]
+    C --&gt; D[测试通过]
+    D --&gt; E[重构优化]
+    E --&gt; F[覆盖率验证]</pre>
+  </div>
+
+</div>
+
+<div class="skill-card" id="skill-integration-testing">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">integration-testing</div>
+    <code class="skill-card-path">skills/integration-testing/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when writing tests that hit a real database or broker, setting up Testcontainers for a project, testing HTTP endpoints end-to-end within the service boundary, or implementing contract tests between two services.</p>
+
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>这是一份集成测试规范，覆盖真实数据库与消息队列接入、Testcontainers（一次性测试容器）配置、服务边界内端到端测试、服务间契约测试，让团队在上线前就发现单元测试覆盖不到的接口契约和数据集成问题。</p>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>新模块开发时优先用 Testcontainers 启真实数据库或 Kafka（分布式消息队列），让测试和生产用相同中间件版本。</li><li>接口写完单测后立刻补 HTTP 端到端测试，验证完整请求路径包括序列化、鉴权、错误处理。</li><li>跨服务调用按文档的契约测试模板编写，消费方和提供方一致才能合并主干。</li><li>CI（持续集成）流水线把集成测试和单元测试分阶段跑，单测过了再跑集成测试节约资源。</li><li>测试用例每月评审一次，移除冗余案例，新增覆盖盲点，让测试套件保持精干。</li></ol>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+    A[业务代码] --&gt; B[Testcontainers 启依赖]
+    B --&gt; C[端到端请求]
+    C --&gt; D[契约校验]
+    D --&gt; E[测试报告]
+    E --&gt; F[CI 流水线]</pre>
+  </div>
+
+</div>
+
+<div class="skill-card" id="skill-performance-testing">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">performance-testing</div>
+    <code class="skill-card-path">skills/performance-testing/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when load testing a service before launch or after a significant traffic change — writing k6 or Locust scripts, setting SLO-based pass/fail thresholds, diagnosing bottlenecks under load, or integrating performance tests into CI.</p>
+
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>这是一份性能测试规范，覆盖 k6 与 Locust（两款主流压测工具）脚本编写、SLO（服务等级目标）阈值判定、压测瓶颈诊断、CI（持续集成）流水线集成，让团队在大促或流量翻倍前提前压出系统极限，而不是在线上被流量打挂。</p>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>新接口上线前按本文档的压测三段式（基线、阶梯加压、长稳压测）跑一遍，确定容量底线。</li><li>压测脚本里把 SLO 阈值写成判定逻辑，超出 P95 延迟或错误率自动失败，让流水线把把关。</li><li>压测时配合可观测性大盘抓 CPU、内存、慢 SQL、连接池四类瓶颈，按文档诊断流程逐项定位。</li><li>重大版本发布前必跑压测，结果归档到性能趋势库，对比上一版本看是否出现回退。</li><li>压测环境数据规模必须和生产同量级，否则结论失真，按文档建议做数据脱敏后复制。</li></ol>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+    A[压测脚本] --&gt; B[基线压测]
+    B --&gt; C[阶梯加压]
+    C --&gt; D[瓶颈定位]
+    D --&gt; E{SLO 达标?}
+    E --&gt;|否| F[回归优化]</pre>
+  </div>
+
+</div>
+
+<div class="skill-card" id="skill-solution-testing">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">solution-testing</div>
+    <code class="skill-card-path">skills/solution-testing/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Use when writing Playwright E2E tests for critical user journeys, setting up post-deployment smoke tests, debugging flaky browser automation, or implementing BDD feature files with Gherkin.</p>
+
+  <div class="skill-card-section">
+    <h4>是什么</h4>
+    <p>这是一份方案级端到端测试规范，覆盖 Playwright（浏览器自动化框架）E2E（端到端）测试、部署后冒烟测试、浏览器自动化稳定性、BDD（行为驱动开发）特性文件编写，让团队从用户视角验证核心链路是真的能跑通。</p>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>怎么用</h4>
+    <ol><li>梳理产品核心用户旅程，按本文档的优先级矩阵选出 5-10 条主路径写 Playwright E2E 测试。</li><li>每次部署后立刻跑冒烟测试套件，10 分钟内确认登录、下单、支付等关键流程没坏。</li><li>浏览器测试容易抖动时，按文档的稳定性清单（显式等待、独立账号、清理数据）逐项排查 flaky 用例。</li><li>业务方提需求时用 Gherkin（BDD 描述语言）写 Given-When-Then 三段式描述，让测试用例和产品文档对齐。</li><li>测试报告里同时附上失败截图和 trace，方便定位前端、后端、网络三类问题，缩短定位耗时。</li></ol>
+  </div>
+
+  <div class="skill-card-section">
+    <h4>架构图</h4>
+    <pre class="mermaid">flowchart LR
+    A[用户旅程清单] --&gt; B[Playwright 脚本]
+    B --&gt; C[本地预演]
+    C --&gt; D[CI 冒烟跑]
+    D --&gt; E{通过?}
+    E --&gt;|否| F[截图与 trace]</pre>
+  </div>
+
+</div>
+</section>
+
+<section>
+<h2>多 CLI 安装支持（Claude Code / Codex / Gemini / Hermes / OpenClaw）</h2>
+<p>安装入口统一走 GitHub 固定 tag：<code>https://github.com/MARUCIE/openclaw-role-packs.git</code> @ <code>v2026.05.26.1</code>。公开 Pages 直连
+<code>/packs/*/install.sh</code> 已关闭，避免绕过登录/发放链路或命中旧 CDN 缓存。</p>
+<table style="width:100%; border-collapse:collapse; margin:12px 0;">
+  <thead><tr style="background:#F4F1EB; text-align:left;">
+    <th style="padding:8px 12px;">CLI Agent</th>
+    <th style="padding:8px 12px;">默认目录</th>
+    <th style="padding:8px 12px;">安装命令</th>
+  </tr></thead>
+  <tbody>
+    <tr><td style="padding:8px 12px;"><strong>Claude Code</strong></td><td style="padding:8px 12px;"><code>~/.claude/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; spellbook-test-engineer --agent=claude</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Codex CLI</strong></td><td style="padding:8px 12px;"><code>~/.codex/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; spellbook-test-engineer --agent=codex</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Gemini CLI</strong></td><td style="padding:8px 12px;"><code>~/.gemini/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; spellbook-test-engineer --agent=gemini</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Hermes agent</strong></td><td style="padding:8px 12px;"><code>~/.hermes/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; spellbook-test-engineer --agent=hermes</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>OpenClaw</strong></td><td style="padding:8px 12px;"><code>~/.openclaw/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; spellbook-test-engineer --agent=openclaw</code></td></tr>
+    <tr><td style="padding:8px 12px;">其它 / 自定义</td><td style="padding:8px 12px;"><code>$INSTALL_DEST</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; spellbook-test-engineer --agent=claude --target /your/dir</code></td></tr>
+  </tbody>
+</table>
+<p class="muted">安装脚本仍支持 <code>--target</code> / <code>INSTALL_DEST</code> / <code>--agent=&lt;X&gt;</code>；生产页面复制按钮也输出同一条 GitHub tag 命令。</p>
+<p class="muted">artifact 的 <code>dst</code> 路径（<code>skills/</code> · <code>agents/</code> · <code>CLAUDE.md</code> · <code>AGENTS.md</code>）是 Claude + Codex + Gemini + Hermes + OpenClaw 间的共享约定。<code>CLAUDE.md</code> 在 Codex/Gemini/Hermes/OpenClaw 上是惰性文件（不读取，也无害）。</p>
+</section>
+
+<section>
+<h2>常见反模式（从本包 CLAUDE.md 抽取）</h2>
+
+<p class="muted">本包当前在 CLAUDE.md 中尚未达到 ≥5 个反模式信号（PACK_SPEC v1.0 P2 要求）。
+这是它停在 stub-tier 的常见原因之一。如果你装包后撞到一个真实反模式，请到 <a href="/wall">卡点墙</a>
+反馈，下轮会补回来。</p>
+
+</section>
+
+<section>
+<h2>验证标准 / Validation</h2>
+<p>装包之后想确认它"真装上了 + 真能用"，按你用的 CLI 跑对应命令：</p>
+<pre><code># Claude Code（默认）— 确认 ~/.claude 下有本包安装的产物
+ls -la ~/.claude/CLAUDE.md ~/.claude/AGENTS.md ~/.claude/settings.json ~/.claude/prompts.md
+
+# Codex CLI — 确认 ~/.codex 下有本包安装的产物
+ls -la ~/.codex/AGENTS.md ~/.codex/settings.json ~/.codex/skills/
+
+# Gemini CLI — 确认 ~/.gemini 下有本包安装的产物
+ls -la ~/.gemini/AGENTS.md ~/.gemini/settings.json ~/.gemini/skills/
+
+# Hermes agent — 确认 ~/.hermes 下有本包安装的产物
+ls -la ~/.hermes/AGENTS.md ~/.hermes/settings.json ~/.hermes/skills/
+
+# OpenClaw — 确认 ~/.openclaw 下有本包安装的产物
+ls -la ~/.openclaw/AGENTS.md ~/.openclaw/settings.json ~/.openclaw/skills/
+
+# 验证 manifest 声明的 first_use_demo 命令能 dry-run 起来（Claude 示例）
+claude --help | head -3
+
+# 回到 /packs，登录后复制本包安装命令
+#    公开直连 /packs/spellbook-test-engineer/install.sh 已关闭，安装命令固定为 GitHub tag
+</code></pre>
+</section>
+
+<section>
+<h2>卡住时去哪里</h2>
+<div class="kbd-row">
+  <a href="/wall">→ 卡点墙：登记你的卡点 / 看别人的解法</a>
+  <a href="/packs">← 回到岗位包目录</a>
+  <a href="https://github.com/MARUCIE/openclaw-foundry/issues" target="_blank" rel="noreferrer">在 GitHub 提 Issue</a>
+</div>
+<p style="margin-top:16px;">本指导手册自动跟随 pack 内容更新；下次 <code>git push</code> + Cloudflare Pages
+重新部署之后会自动重生成。如果发现内容过时，先看 pack 的 <code>CLAUDE.md</code> / <code>prompts.md</code>
+是不是已经改了 — 这里是它们的派生视图。</p>
+</section>
+
+<footer>
+  <p>OpenClaw Foundry — 测试工程师（历史别名） 岗位包指导手册</p>
+  <p>Agent Foundry Team</p>
+  <p style="font-size:12px; margin-top:8px;">生成版本：v2026.05.26.1 · 生成时间：2026-05-26 00:00:00 UTC · 数据来源：本包 manifest.json + CLAUDE.md + skills/**/{SKILL,SPEC}.md</p>
+</footer>
+</div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.4/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FAF8F4',
+      primaryTextColor: '#2C2C2E',
+      primaryBorderColor: '#D67052',
+      lineColor: '#5C5C5E',
+      secondaryColor: '#EDE8DD',
+      tertiaryColor: '#FFFFFF',
+      fontFamily: "'Source Sans 3','Noto Sans SC',sans-serif"
+    }
+  });
+</script>
+</body>
+</html>

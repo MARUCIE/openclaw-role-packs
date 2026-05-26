@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   generated-by: scripts/generate-pack-guides.mjs
-  generated-at: 2026-05-25T00:00:00.000Z
+  generated-at: 2026-05-26T00:00:00.000Z
   style-id: html-document-style (Claude Warm Academic Humanism)
   route: html-style-router → "Documentation" row → guide/manual/onboarding
   source: web/public/packs/investment-analyst/{manifest.json,CLAUDE.md,prompts.md}
@@ -96,7 +96,7 @@ footer p { max-width: none; margin: 4px 0; }
   <h1>投资分析师</h1>
   <p class="subtitle">估值/DCF/对标分析的全流程配置，输出可审计的投资备忘录。</p>
   <div class="meta-row">
-    <span class="tier-pill tier-stub" title="尚未达到 PACK_SPEC v1.0 enriched 标准">Stub</span>
+    <span class="tier-pill tier-enriched" title="已申明 spec_version 1.0 + first_use_demo">已富化 · Enriched</span>
     <span>版本 <strong>1.0.0</strong></span>
     <span>装包目标 <strong>8</strong> 分钟跑通</span>
     <span>路由：<strong>html-document-style</strong> · Claude Warm Academic</span>
@@ -115,29 +115,64 @@ footer p { max-width: none; margin: 4px 0; }
 <h2>装包后第一件事</h2>
 
 <p class="lead">复制下面这条命令到 Claude Code，约 8 分钟应当看到预期输出：</p>
-<pre><code>claude --skill valuation &#39;run DCF on company X with 5y forecast&#39;</code></pre>
-<p>预期输出：DCF model with assumptions table + sensitivity analysis + memo draft</p>
+<pre><code>claude --skill investment-analyst-delivery-review &quot;build an investment memo for an AI tooling company with thesis, scenarios, risks, and diligence plan&quot;</code></pre>
+<p>预期输出：investment memo + scenario model + risk matrix + diligence checklist</p>
 
 
 </section>
 
 <section>
 <h2>工具包包含什么（Toolkit）</h2>
-<p class="muted">本包暂未带 skill 资源（stub-tier）。</p>
+<ul class="kit-list"><li><code>skills/investment-analyst/scope-contract/SKILL.md</code></li><li><code>skills/investment-analyst/quality-gate/SKILL.md</code></li><li><code>skills/investment-analyst/delivery-review/SKILL.md</code></li></ul>
 
 <h3>Advisor 角色</h3>
-<p class="muted">本包暂未带 advisor 角色。</p>
+<ul class="kit-list"><li><code>agents/advisor-quality-gate.md</code></li><li><code>agents/advisor-delivery-risk.md</code></li></ul>
 </section>
 
 <section>
 <h2>工具详解（每个 skill 是什么 · 怎么用 · 架构图）</h2>
 <p>下面每张卡片对应一个 skill，三段式结构：<strong>是什么</strong>（这个能力的业务效果） · <strong>怎么用</strong>（PM 视角的 3-5 步使用动线） · <strong>架构图</strong>（输入 → 处理 → 产出的 Mermaid 流程图）。装包到本地后，你在 Claude Code 里 <code>claude --skill &lt;skill-name&gt;</code> 调用的内容，就是这些 skill 的全文。</p>
-<p class="muted">本包暂未带 skill 资源。</p>
+
+<div class="skill-card skill-card-stub" id="skill-scope-contract">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">scope-contract</div>
+    <code class="skill-card-path">skills/pack-maturity/scope-contract/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Scope Contract Workflow</p>
+
+
+
+  <p class="muted skill-card-stub-note">此 skill 尚未完成三段式美化（是什么 / 怎么用 / 架构图）— 下一轮补齐。</p>
+</div>
+
+<div class="skill-card skill-card-stub" id="skill-quality-gate">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">quality-gate</div>
+    <code class="skill-card-path">skills/pack-maturity/quality-gate/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Quality Gate Workflow</p>
+
+
+
+  <p class="muted skill-card-stub-note">此 skill 尚未完成三段式美化（是什么 / 怎么用 / 架构图）— 下一轮补齐。</p>
+</div>
+
+<div class="skill-card skill-card-stub" id="skill-delivery-review">
+  <div class="skill-card-header">
+    <div class="skill-card-tag">delivery-review</div>
+    <code class="skill-card-path">skills/pack-maturity/delivery-review/SKILL.md</code>
+  </div>
+  <p class="skill-card-desc">Delivery Review Workflow</p>
+
+
+
+  <p class="muted skill-card-stub-note">此 skill 尚未完成三段式美化（是什么 / 怎么用 / 架构图）— 下一轮补齐。</p>
+</div>
 </section>
 
 <section>
 <h2>多 CLI 安装支持（Claude Code / Codex / Gemini / Hermes / OpenClaw）</h2>
-<p>安装入口统一走 GitHub 固定 tag：<code>https://github.com/MARUCIE/openclaw-role-packs.git</code> @ <code>v2026.05.25.5</code>。公开 Pages 直连
+<p>安装入口统一走 GitHub 固定 tag：<code>https://github.com/MARUCIE/openclaw-role-packs.git</code> @ <code>v2026.05.26.1</code>。公开 Pages 直连
 <code>/packs/*/install.sh</code> 已关闭，避免绕过登录/发放链路或命中旧 CDN 缓存。</p>
 <table style="width:100%; border-collapse:collapse; margin:12px 0;">
   <thead><tr style="background:#F4F1EB; text-align:left;">
@@ -146,12 +181,12 @@ footer p { max-width: none; margin: 4px 0; }
     <th style="padding:8px 12px;">安装命令</th>
   </tr></thead>
   <tbody>
-    <tr><td style="padding:8px 12px;"><strong>Claude Code</strong></td><td style="padding:8px 12px;"><code>~/.claude/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.25.5 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=claude</code></td></tr>
-    <tr><td style="padding:8px 12px;"><strong>Codex CLI</strong></td><td style="padding:8px 12px;"><code>~/.codex/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.25.5 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=codex</code></td></tr>
-    <tr><td style="padding:8px 12px;"><strong>Gemini CLI</strong></td><td style="padding:8px 12px;"><code>~/.gemini/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.25.5 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=gemini</code></td></tr>
-    <tr><td style="padding:8px 12px;"><strong>Hermes agent</strong></td><td style="padding:8px 12px;"><code>~/.hermes/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.25.5 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=hermes</code></td></tr>
-    <tr><td style="padding:8px 12px;"><strong>OpenClaw</strong></td><td style="padding:8px 12px;"><code>~/.openclaw/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.25.5 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=openclaw</code></td></tr>
-    <tr><td style="padding:8px 12px;">其它 / 自定义</td><td style="padding:8px 12px;"><code>$INSTALL_DEST</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.25.5 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=claude --target /your/dir</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Claude Code</strong></td><td style="padding:8px 12px;"><code>~/.claude/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=claude</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Codex CLI</strong></td><td style="padding:8px 12px;"><code>~/.codex/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=codex</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Gemini CLI</strong></td><td style="padding:8px 12px;"><code>~/.gemini/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=gemini</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>Hermes agent</strong></td><td style="padding:8px 12px;"><code>~/.hermes/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=hermes</code></td></tr>
+    <tr><td style="padding:8px 12px;"><strong>OpenClaw</strong></td><td style="padding:8px 12px;"><code>~/.openclaw/</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=openclaw</code></td></tr>
+    <tr><td style="padding:8px 12px;">其它 / 自定义</td><td style="padding:8px 12px;"><code>$INSTALL_DEST</code></td><td style="padding:8px 12px;"><code class="install-command">tmp=&quot;$(mktemp -d)&quot; &amp;&amp; git clone --depth 1 --branch v2026.05.26.1 https://github.com/MARUCIE/openclaw-role-packs.git &quot;$tmp/openclaw-role-packs&quot; &amp;&amp; &quot;$tmp/openclaw-role-packs/install.sh&quot; investment-analyst --agent=claude --target /your/dir</code></td></tr>
   </tbody>
 </table>
 <p class="muted">安装脚本仍支持 <code>--target</code> / <code>INSTALL_DEST</code> / <code>--agent=&lt;X&gt;</code>；生产页面复制按钮也输出同一条 GitHub tag 命令。</p>
@@ -164,6 +199,10 @@ footer p { max-width: none; margin: 4px 0; }
 <p>装包后真正落到工作流之前，先看这些。每一条都是 PACK_SPEC v1.0 P2 支柱里要求的"反模式信号"：</p>
 <ul class="kit-list">
 <li>加 ≥3 个反模式信号到本文件（让 pack-spec-audit.py 的 P2 通过）</li>
+<li>Never claim a pack is enriched by changing a badge; the audit must pass.</li>
+<li>Avoid one-shot answers when the role needs a decision gate or rollout plan.</li>
+<li>Avoid generic brainstorming when the user asked for an operational artifact.</li>
+<li>Forbidden: hiding uncertainty behind confident prose.</li>
 </ul>
 
 </section>
@@ -209,7 +248,7 @@ claude --help | head -3
 <footer>
   <p>OpenClaw Foundry — 投资分析师 岗位包指导手册</p>
   <p>Agent Foundry Team</p>
-  <p style="font-size:12px; margin-top:8px;">生成版本：v2026.05.25.5 · 生成时间：2026-05-25 00:00:00 UTC · 数据来源：本包 manifest.json + CLAUDE.md + skills/**/{SKILL,SPEC}.md</p>
+  <p style="font-size:12px; margin-top:8px;">生成版本：v2026.05.26.1 · 生成时间：2026-05-26 00:00:00 UTC · 数据来源：本包 manifest.json + CLAUDE.md + skills/**/{SKILL,SPEC}.md</p>
 </footer>
 </div>
 <script type="module">

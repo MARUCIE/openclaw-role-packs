@@ -1,7 +1,33 @@
 {
-  "total": 26,
+  "total": 22,
   "generated": "2026-05-19T08:29:19.603Z",
   "packs": [
+    {
+      "id": "ab-test-analyst",
+      "name": "A/B Test Analyst",
+      "nameZh": "AB 测试分析师",
+      "description": "Experiment design + statistical analysis + readout.",
+      "descriptionZh": "实验设计 + 样本量计算 + 统计显著性分析 + 业务化解读的工作流。",
+      "icon": "science",
+      "color": "#8B5CF6",
+      "line": "data-ai",
+      "lineZh": "数据AI职能线",
+      "layerIds": [],
+      "version": "1.0.0",
+      "downloadCount": 0,
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
+    },
     {
       "id": "algorithm-engineer",
       "name": "Algorithm Engineer",
@@ -31,9 +57,9 @@
         "install.sh",
         "manifest.json"
       ],
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
       "hasE2eEvidence": false
     },
     {
@@ -76,10 +102,10 @@
         "install.sh",
         "manifest.json"
       ],
-      "tier": "certified",
+      "tier": "enriched",
       "specVersion": "1.0",
       "hasFirstUseDemo": true,
-      "hasE2eEvidence": true
+      "hasE2eEvidence": false
     },
     {
       "id": "bigdata-engineer",
@@ -110,9 +136,9 @@
         "install.sh",
         "manifest.json"
       ],
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
       "hasE2eEvidence": false
     },
     {
@@ -145,6 +171,108 @@
         "install.sh",
         "manifest.json"
       ],
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
+    },
+    {
+      "id": "data-analyst",
+      "name": "Data Analyst",
+      "nameZh": "数据分析师",
+      "description": "Analytics + metrics + dashboards: 8 data skills + 2 advisor lenses for PM-facing analysis.",
+      "descriptionZh": "数据分析 + 指标体系 + Dashboard 工作台：8 个 PM 视角分析 skill + 2 位顾问视角。",
+      "icon": "monitoring",
+      "color": "#B45309",
+      "line": "data-ai",
+      "lineZh": "数据AI职能线",
+      "layerIds": [
+        "universal",
+        "line-data-ai",
+        "role-data-analyst"
+      ],
+      "version": "1.0.0",
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "artifacts": {
+        "skills": 8,
+        "agents": 2,
+        "references": 0
+      },
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
+    },
+    {
+      "id": "designer",
+      "name": "Designer",
+      "nameZh": "设计师",
+      "description": "Experience architecture, visual hierarchy, design tokens, aesthetic QA, and engineering handoff. Prototype hypotheses stay with Product Manager.",
+      "descriptionZh": "面向产品团队的设计师配置：体验架构、视觉层级、design tokens、设计 QA 与工程 handoff；原型假设与验证归产品经理负责。",
+      "icon": "palette",
+      "color": "#D946EF",
+      "line": "product",
+      "lineZh": "产品职能线",
+      "layerIds": [
+        "universal",
+        "line-product",
+        "role-designer"
+      ],
+      "version": "4.3.0",
+      "tier": "enriched",
+      "artifacts": {
+        "skills": 3,
+        "agents": 2,
+        "references": 0
+      },
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
+    },
+    {
+      "id": "executive-strategist",
+      "name": "Executive Strategist",
+      "nameZh": "高管战略顾问",
+      "description": "Executive strategic thinking workspace: 8 frameworks + 5 advisor lenses + 211-model cognitive skeleton.",
+      "descriptionZh": "高管战略思考工作台：8 个分析框架 + 5 位顾问导师视角 + 211 心智模型索引。",
+      "icon": "insights",
+      "color": "#1E3A8A",
+      "line": "strategy",
+      "lineZh": "战略决策线",
+      "layerIds": [
+        "universal",
+        "line-strategy",
+        "role-executive-strategist"
+      ],
+      "version": "1.0.0",
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "artifacts": {
+        "skills": 8,
+        "agents": 5,
+        "references": 1
+      },
       "tier": "enriched",
       "specVersion": "1.0",
       "hasFirstUseDemo": true,
@@ -200,10 +328,10 @@
         "install.sh",
         "manifest.json"
       ],
-      "tier": "certified",
+      "tier": "enriched",
       "specVersion": "1.0",
       "hasFirstUseDemo": true,
-      "hasE2eEvidence": true
+      "hasE2eEvidence": false
     },
     {
       "id": "infra-engineer",
@@ -234,9 +362,61 @@
         "install.sh",
         "manifest.json"
       ],
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
+    },
+    {
+      "id": "internal-control-specialist",
+      "name": "Internal Control Specialist",
+      "nameZh": "内控专家",
+      "description": "SOX / 财税内控 / process audit workflow with bilingual checklists.",
+      "descriptionZh": "SOX / 财税内控 / 流程审计 / 三道防线模型的工作流，含双语 checklist 与整改追踪。",
+      "icon": "verified_user",
+      "color": "#F59E0B",
+      "line": "business",
+      "lineZh": "业务职能线",
+      "layerIds": [],
+      "version": "1.0.0",
+      "downloadCount": 0,
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
+    },
+    {
+      "id": "investment-analyst",
+      "name": "Investment Analyst",
+      "nameZh": "投资分析师",
+      "description": "Valuation / DCF / comparable analysis with audit trails.",
+      "descriptionZh": "估值/DCF/对标分析的全流程配置，输出可审计的投资备忘录。",
+      "icon": "trending_up",
+      "color": "#10B981",
+      "line": "business",
+      "lineZh": "业务职能线",
+      "layerIds": [],
+      "version": "1.0.0",
+      "downloadCount": 0,
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
       "hasE2eEvidence": false
     },
     {
@@ -268,9 +448,9 @@
         "install.sh",
         "manifest.json"
       ],
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
       "hasE2eEvidence": false
     },
     {
@@ -315,10 +495,44 @@
         "install.sh",
         "manifest.json"
       ],
-      "tier": "certified",
+      "tier": "enriched",
       "specVersion": "1.0",
       "hasFirstUseDemo": true,
-      "hasE2eEvidence": true
+      "hasE2eEvidence": false
+    },
+    {
+      "id": "research-analyst",
+      "name": "Research Analyst",
+      "nameZh": "研究分析师",
+      "description": "SOTA scan + competitive analysis + literature synthesis: 8 research-flow skills + 3 advisor lenses.",
+      "descriptionZh": "前沿扫描 + 竞品分析 + 文献综述工作台：8 个研究骨架 skill + 3 位顾问视角。",
+      "icon": "science",
+      "color": "#047857",
+      "line": "research",
+      "lineZh": "研究学习线",
+      "layerIds": [
+        "universal",
+        "line-research",
+        "role-research-analyst"
+      ],
+      "version": "1.0.0",
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "artifacts": {
+        "skills": 8,
+        "agents": 3,
+        "references": 0
+      },
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
     },
     {
       "id": "scenario-planner",
@@ -358,102 +572,25 @@
         "install.sh",
         "manifest.json"
       ],
-      "tier": "certified",
-      "specVersion": "1.0",
-      "hasFirstUseDemo": true,
-      "hasE2eEvidence": true
-    },
-    {
-      "id": "test-engineer",
-      "name": "Test Engineer",
-      "nameZh": "测试工程师",
-      "description": "Test strategy + Playwright E2E + Scenario coverage. Workshop W4 tool kit (测试质量保障岗) included.",
-      "descriptionZh": "面向财税平台的测试工程师配置。集成 AI 训战工作坊 W4（测试质量保障岗）的 5 件工具套件。",
-      "icon": "bug_report",
-      "color": "#7C3AED",
-      "line": "engineering",
-      "lineZh": "研发职能线",
-      "layerIds": [
-        "universal",
-        "line-engineering",
-        "role-test"
-      ],
-      "version": "4.2.0",
-      "artifacts": {
-        "skills": 7,
-        "agents": 2,
-        "references": 2,
-        "toolKits": 4,
-        "dataCollection": 2
-      },
-      "preserveContent": true,
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "baseline-before-after.md",
-        "checklist-delivery.md",
-        "tool-kit-03-sop-flowchart.md",
-        "tool-kit-05-document-templates.md",
-        "data-collection/baseline-actual.csv",
-        "data-collection/cohort-feedback-form.md",
-        "install.sh",
-        "manifest.json"
-      ],
-      "tier": "certified",
-      "specVersion": "1.0",
-      "hasFirstUseDemo": true,
-      "hasE2eEvidence": true
-    },
-    {
-      "id": "designer",
-      "name": "Designer",
-      "nameZh": "设计师",
-      "description": "Experience architecture, visual hierarchy, design tokens, aesthetic QA, and engineering handoff. Prototype hypotheses stay with Product Manager.",
-      "descriptionZh": "面向产品团队的设计师配置：体验架构、视觉层级、design tokens、设计 QA 与工程 handoff；原型假设与验证归产品经理负责。",
-      "icon": "palette",
-      "color": "#D946EF",
-      "line": "product",
-      "lineZh": "产品职能线",
-      "layerIds": [
-        "universal",
-        "line-product",
-        "role-designer"
-      ],
-      "version": "4.3.0",
       "tier": "enriched",
-      "artifacts": {
-        "skills": 3,
-        "agents": 2,
-        "references": 0
-      },
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "install.sh",
-        "manifest.json"
-      ],
       "specVersion": "1.0",
       "hasFirstUseDemo": true,
       "hasE2eEvidence": false
     },
     {
-      "id": "spellbook-code-reviewer",
-      "name": "Code Reviewer",
-      "nameZh": "代码审查师",
-      "description": "Two-stage PR review (spec compliance → code quality) with sonnet-grade specialist agents.",
-      "descriptionZh": "两阶段 PR 评审（规格合规 → 代码质量）配 sonnet 级专家代理。",
-      "icon": "rate_review",
-      "color": "#0053A4",
-      "line": "engineering",
-      "lineZh": "工程职能线",
+      "id": "spellbook-ai-app-engineer",
+      "name": "AI App Engineer",
+      "nameZh": "AI 应用工程师",
+      "description": "Agentex / LangGraph / OpenAI Agents SDKs + complex-doc-RAG debug + memory architecture.",
+      "descriptionZh": "Agentex / LangGraph / OpenAI Agents SDK + 复杂文档 RAG 调试 + 内存架构。",
+      "icon": "psychology",
+      "color": "#005136",
+      "line": "data-ai",
+      "lineZh": "数据AI职能线",
       "layerIds": [
         "universal",
-        "line-engineering",
-        "role-spellbook-cr"
+        "line-data-ai",
+        "role-spellbook-ai"
       ],
       "version": "1.1.0",
       "files": [
@@ -465,119 +602,14 @@
         "manifest.json"
       ],
       "artifacts": {
-        "skills": 5,
-        "agents": 3,
-        "commands": 4,
-        "lint_files": 0
-      },
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
-      "hasE2eEvidence": false
-    },
-    {
-      "id": "spellbook-security-auditor",
-      "name": "Security Auditor",
-      "nameZh": "安全审计师",
-      "description": "OWASP Top 10 + IAM patterns + dependency CVE audit + pre-deploy gate.",
-      "descriptionZh": "OWASP Top 10 + IAM 模式 + 依赖 CVE 审计 + 部署前 gate。",
-      "icon": "verified_user",
-      "color": "#DC2626",
-      "line": "engineering",
-      "lineZh": "工程职能线",
-      "layerIds": [
-        "universal",
-        "line-engineering",
-        "role-spellbook-sec"
-      ],
-      "version": "1.1.0",
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "install.sh",
-        "manifest.json"
-      ],
-      "artifacts": {
-        "skills": 4,
-        "agents": 2,
-        "commands": 2,
-        "lint_files": 2
-      },
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
-      "hasE2eEvidence": false
-    },
-    {
-      "id": "spellbook-test-engineer",
-      "name": "Test Engineer (Spellbook)",
-      "nameZh": "测试工程师",
-      "description": "Full test pyramid (unit → integration → E2E + perf) + coverage gap agent + scaffolding.",
-      "descriptionZh": "完整测试金字塔（单测 → 集成 → E2E + 性能）+ 覆盖率代理 + 测试脚手架。",
-      "icon": "bug_report",
-      "color": "#059669",
-      "line": "engineering",
-      "lineZh": "工程职能线",
-      "layerIds": [
-        "universal",
-        "line-engineering",
-        "role-spellbook-test"
-      ],
-      "version": "1.1.0",
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "install.sh",
-        "manifest.json"
-      ],
-      "artifacts": {
-        "skills": 5,
-        "agents": 1,
-        "commands": 1,
-        "lint_files": 0
-      },
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
-      "hasE2eEvidence": false
-    },
-    {
-      "id": "spellbook-platform-engineer",
-      "name": "Platform Engineer",
-      "nameZh": "平台工程师",
-      "description": "CI/CD + containerization + IaC + observability + incident response + 5-language lint configs.",
-      "descriptionZh": "CI/CD + 容器化 + IaC + 可观测性 + 事件响应 + 5 种语言 lint 配置。",
-      "icon": "cloud",
-      "color": "#003A70",
-      "line": "engineering",
-      "lineZh": "工程职能线",
-      "layerIds": [
-        "universal",
-        "line-engineering",
-        "role-spellbook-platform"
-      ],
-      "version": "1.1.0",
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "install.sh",
-        "manifest.json"
-      ],
-      "artifacts": {
-        "skills": 10,
+        "skills": 6,
         "agents": 0,
-        "commands": 1,
-        "lint_files": 18
+        "commands": 0,
+        "lint_files": 0
       },
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
       "hasE2eEvidence": false
     },
     {
@@ -616,6 +648,41 @@
       "hasE2eEvidence": false
     },
     {
+      "id": "spellbook-code-reviewer",
+      "name": "Code Reviewer",
+      "nameZh": "代码审查师",
+      "description": "Two-stage PR review (spec compliance → code quality) with sonnet-grade specialist agents.",
+      "descriptionZh": "两阶段 PR 评审（规格合规 → 代码质量）配 sonnet 级专家代理。",
+      "icon": "rate_review",
+      "color": "#0053A4",
+      "line": "engineering",
+      "lineZh": "工程职能线",
+      "layerIds": [
+        "universal",
+        "line-engineering",
+        "role-spellbook-cr"
+      ],
+      "version": "1.1.0",
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "artifacts": {
+        "skills": 5,
+        "agents": 3,
+        "commands": 4,
+        "lint_files": 0
+      },
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
+    },
+    {
       "id": "spellbook-frontend-engineer",
       "name": "Frontend Engineer (Spellbook)",
       "nameZh": "前端工程师",
@@ -644,41 +711,6 @@
         "agents": 0,
         "commands": 0,
         "lint_files": 14
-      },
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
-      "hasE2eEvidence": false
-    },
-    {
-      "id": "spellbook-ai-app-engineer",
-      "name": "AI App Engineer",
-      "nameZh": "AI 应用工程师",
-      "description": "Agentex / LangGraph / OpenAI Agents SDKs + complex-doc-RAG debug + memory architecture.",
-      "descriptionZh": "Agentex / LangGraph / OpenAI Agents SDK + 复杂文档 RAG 调试 + 内存架构。",
-      "icon": "psychology",
-      "color": "#005136",
-      "line": "data-ai",
-      "lineZh": "数据AI职能线",
-      "layerIds": [
-        "universal",
-        "line-data-ai",
-        "role-spellbook-ai"
-      ],
-      "version": "1.1.0",
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "install.sh",
-        "manifest.json"
-      ],
-      "artifacts": {
-        "skills": 6,
-        "agents": 0,
-        "commands": 0,
-        "lint_files": 0
       },
       "tier": "stub",
       "specVersion": "-",
@@ -715,27 +747,27 @@
         "commands": 1,
         "lint_files": 0
       },
-      "tier": "stub",
-      "specVersion": "-",
-      "hasFirstUseDemo": false,
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
       "hasE2eEvidence": false
     },
     {
-      "id": "executive-strategist",
-      "name": "Executive Strategist",
-      "nameZh": "高管战略顾问",
-      "description": "Executive strategic thinking workspace: 8 frameworks + 5 advisor lenses + 211-model cognitive skeleton.",
-      "descriptionZh": "高管战略思考工作台：8 个分析框架 + 5 位顾问导师视角 + 211 心智模型索引。",
-      "icon": "insights",
-      "color": "#1E3A8A",
-      "line": "strategy",
-      "lineZh": "战略决策线",
+      "id": "spellbook-platform-engineer",
+      "name": "Platform Engineer",
+      "nameZh": "平台工程师",
+      "description": "CI/CD + containerization + IaC + observability + incident response + 5-language lint configs.",
+      "descriptionZh": "CI/CD + 容器化 + IaC + 可观测性 + 事件响应 + 5 种语言 lint 配置。",
+      "icon": "cloud",
+      "color": "#003A70",
+      "line": "engineering",
+      "lineZh": "工程职能线",
       "layerIds": [
         "universal",
-        "line-strategy",
-        "role-executive-strategist"
+        "line-engineering",
+        "role-spellbook-platform"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "files": [
         "CLAUDE.md",
         "AGENTS.md",
@@ -745,9 +777,10 @@
         "manifest.json"
       ],
       "artifacts": {
-        "skills": 8,
-        "agents": 5,
-        "references": 1
+        "skills": 10,
+        "agents": 0,
+        "commands": 1,
+        "lint_files": 18
       },
       "tier": "stub",
       "specVersion": "-",
@@ -755,21 +788,21 @@
       "hasE2eEvidence": false
     },
     {
-      "id": "research-analyst",
-      "name": "Research Analyst",
-      "nameZh": "研究分析师",
-      "description": "SOTA scan + competitive analysis + literature synthesis: 8 research-flow skills + 3 advisor lenses.",
-      "descriptionZh": "前沿扫描 + 竞品分析 + 文献综述工作台：8 个研究骨架 skill + 3 位顾问视角。",
-      "icon": "science",
-      "color": "#047857",
-      "line": "research",
-      "lineZh": "研究学习线",
+      "id": "spellbook-security-auditor",
+      "name": "Security Auditor",
+      "nameZh": "安全审计师",
+      "description": "OWASP Top 10 + IAM patterns + dependency CVE audit + pre-deploy gate.",
+      "descriptionZh": "OWASP Top 10 + IAM 模式 + 依赖 CVE 审计 + 部署前 gate。",
+      "icon": "verified_user",
+      "color": "#DC2626",
+      "line": "engineering",
+      "lineZh": "工程职能线",
       "layerIds": [
         "universal",
-        "line-research",
-        "role-research-analyst"
+        "line-engineering",
+        "role-spellbook-sec"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "files": [
         "CLAUDE.md",
         "AGENTS.md",
@@ -779,9 +812,10 @@
         "manifest.json"
       ],
       "artifacts": {
-        "skills": 8,
-        "agents": 3,
-        "references": 0
+        "skills": 4,
+        "agents": 2,
+        "commands": 2,
+        "lint_files": 2
       },
       "tier": "enriched",
       "specVersion": "1.0",
@@ -789,99 +823,21 @@
       "hasE2eEvidence": false
     },
     {
-      "id": "investment-analyst",
-      "name": "Investment Analyst",
-      "nameZh": "投资分析师",
-      "description": "Valuation / DCF / comparable analysis with audit trails.",
-      "descriptionZh": "估值/DCF/对标分析的全流程配置，输出可审计的投资备忘录。",
-      "icon": "trending_up",
-      "color": "#10B981",
-      "line": "business",
-      "lineZh": "业务职能线",
-      "layerIds": [],
-      "version": "1.0.0",
-      "downloadCount": 0,
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "install.sh",
-        "manifest.json"
-      ],
-      "tier": "stub",
-      "specVersion": "1.0",
-      "hasFirstUseDemo": true,
-      "hasE2eEvidence": false
-    },
-    {
-      "id": "ab-test-analyst",
-      "name": "A/B Test Analyst",
-      "nameZh": "AB 测试分析师",
-      "description": "Experiment design + statistical analysis + readout.",
-      "descriptionZh": "实验设计 + 样本量计算 + 统计显著性分析 + 业务化解读的工作流。",
-      "icon": "science",
-      "color": "#8B5CF6",
-      "line": "data-ai",
-      "lineZh": "数据AI职能线",
-      "layerIds": [],
-      "version": "1.0.0",
-      "downloadCount": 0,
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "install.sh",
-        "manifest.json"
-      ],
-      "tier": "stub",
-      "specVersion": "1.0",
-      "hasFirstUseDemo": true,
-      "hasE2eEvidence": false
-    },
-    {
-      "id": "internal-control-specialist",
-      "name": "Internal Control Specialist",
-      "nameZh": "内控专家",
-      "description": "SOX / 财税内控 / process audit workflow with bilingual checklists.",
-      "descriptionZh": "SOX / 财税内控 / 流程审计 / 三道防线模型的工作流，含双语 checklist 与整改追踪。",
-      "icon": "verified_user",
-      "color": "#F59E0B",
-      "line": "business",
-      "lineZh": "业务职能线",
-      "layerIds": [],
-      "version": "1.0.0",
-      "downloadCount": 0,
-      "files": [
-        "CLAUDE.md",
-        "AGENTS.md",
-        "settings.json",
-        "prompts.md",
-        "install.sh",
-        "manifest.json"
-      ],
-      "tier": "stub",
-      "specVersion": "1.0",
-      "hasFirstUseDemo": true,
-      "hasE2eEvidence": false
-    },
-    {
-      "id": "data-analyst",
-      "name": "Data Analyst",
-      "nameZh": "数据分析师",
-      "description": "Analytics + metrics + dashboards: 8 data skills + 2 advisor lenses for PM-facing analysis.",
-      "descriptionZh": "数据分析 + 指标体系 + Dashboard 工作台：8 个 PM 视角分析 skill + 2 位顾问视角。",
-      "icon": "monitoring",
-      "color": "#B45309",
-      "line": "data-ai",
-      "lineZh": "数据AI职能线",
+      "id": "spellbook-test-engineer",
+      "name": "Test Engineer (Spellbook)",
+      "nameZh": "测试工程师",
+      "description": "Full test pyramid (unit → integration → E2E + perf) + coverage gap agent + scaffolding.",
+      "descriptionZh": "完整测试金字塔（单测 → 集成 → E2E + 性能）+ 覆盖率代理 + 测试脚手架。",
+      "icon": "bug_report",
+      "color": "#059669",
+      "line": "engineering",
+      "lineZh": "工程职能线",
       "layerIds": [
         "universal",
-        "line-data-ai",
-        "role-data-analyst"
+        "line-engineering",
+        "role-spellbook-test"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "files": [
         "CLAUDE.md",
         "AGENTS.md",
@@ -891,9 +847,10 @@
         "manifest.json"
       ],
       "artifacts": {
-        "skills": 8,
-        "agents": 2,
-        "references": 0
+        "skills": 5,
+        "agents": 1,
+        "commands": 1,
+        "lint_files": 0
       },
       "tier": "stub",
       "specVersion": "-",
@@ -944,12 +901,55 @@
       "specVersion": "1.0",
       "hasFirstUseDemo": true,
       "hasE2eEvidence": false
+    },
+    {
+      "id": "test-engineer",
+      "name": "Test Engineer",
+      "nameZh": "测试工程师",
+      "description": "Test strategy + Playwright E2E + Scenario coverage. Workshop W4 tool kit (测试质量保障岗) included.",
+      "descriptionZh": "面向财税平台的测试工程师配置。集成 AI 训战工作坊 W4（测试质量保障岗）的 5 件工具套件。",
+      "icon": "bug_report",
+      "color": "#7C3AED",
+      "line": "engineering",
+      "lineZh": "研发职能线",
+      "layerIds": [
+        "universal",
+        "line-engineering",
+        "role-test"
+      ],
+      "version": "4.2.0",
+      "artifacts": {
+        "skills": 7,
+        "agents": 2,
+        "references": 2,
+        "toolKits": 4,
+        "dataCollection": 2
+      },
+      "preserveContent": true,
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "settings.json",
+        "prompts.md",
+        "baseline-before-after.md",
+        "checklist-delivery.md",
+        "tool-kit-03-sop-flowchart.md",
+        "tool-kit-05-document-templates.md",
+        "data-collection/baseline-actual.csv",
+        "data-collection/cohort-feedback-form.md",
+        "install.sh",
+        "manifest.json"
+      ],
+      "tier": "enriched",
+      "specVersion": "1.0",
+      "hasFirstUseDemo": true,
+      "hasE2eEvidence": false
     }
   ],
   "tierSummary": {
-    "stub": 17,
-    "enriched": 4,
-    "certified": 5
+    "stub": 0,
+    "enriched": 22,
+    "certified": 0
   },
   "tierInjectedAt": "2026-05-19T08:29:19.766Z"
 }
