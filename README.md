@@ -18,7 +18,7 @@ Pinned release snapshot:
 
 ```bash
 tmp="$(mktemp -d)"
-git clone --depth 1 --branch v2026.05.25 https://github.com/MARUCIE/openclaw-role-packs.git "$tmp/openclaw-role-packs"
+git clone --depth 1 --branch v2026.05.27.1 https://github.com/MARUCIE/openclaw-role-packs.git "$tmp/openclaw-role-packs"
 "$tmp/openclaw-role-packs/install.sh" frontend-engineer --agent=codex
 ```
 
