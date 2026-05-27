@@ -6,9 +6,13 @@ const root = new URL('..', import.meta.url).pathname;
 const packsDir = join(root, 'packs');
 const catalogPath = join(root, 'catalog', 'packs.json');
 const skillsCatalogPath = join(root, 'catalog', 'skills.json');
+const releasePath = join(root, 'catalog', 'role-pack-release.json');
+const packagePath = join(root, 'package.json');
 const required = ['AGENTS.md', 'CLAUDE.md', 'settings.json', 'prompts.md', 'manifest.json', 'install.sh'];
 const forbiddenPublicSource = /(file:\/\/\/Users\/|\/Users\/|C:[\\/]+Users[\\/]+|~\/Projects)/;
 const legacyPagesInstall = /agent-foundry\.pages\.dev\/packs\/[^"'<\s]+\/install\.sh/i;
+const unpinnedGitInstall = /git clone --depth 1 https:\/\/github\.com\/MARUCIE\/openclaw-role-packs\.git/;
+const concretePersonName = /杨长志|叶宇|李吉平|王荣|陈豪|徐飞|Charlie Munger|Peter Drucker|Donella Meadows|Warren Buffett|Nassim (?:Nicholas )?Taleb|Rich Hickey|Fred(?:erick)? Brooks|Steve Jobs|Jony Ive|Kenya Hara|Ed(?:win)? Catmull|Elon Musk|George Orwell|Andrej Karpathy|Tony Ulwick|Sabeen Sattar|Alexander Osterwalder|Ash Maurya|Paweł Huryn|Pawel Huryn|Aatir Abdul Rauf|Ben Yoskovitz|Geoffrey Moore|Miqdad Jaffer|Maurice|maurice_wen@proton\.me/;
 const publicUrl = /^https?:\/\//i;
 
 function readJson(path) {
@@ -61,6 +65,22 @@ if (!Array.isArray(catalogPacks)) {
 const ids = [...new Set(catalogPacks.map((pack) => pack.id))].sort();
 const dirs = readdirSync(packsDir).filter((name) => statSync(join(packsDir, name)).isDirectory()).sort();
 const problems = [];
+
+if (!existsSync(releasePath)) {
+  problems.push('catalog/role-pack-release.json is missing');
+} else {
+  const release = readJson(releasePath);
+  const packageJson = readJson(packagePath);
+  if (release.version !== packageJson.version) {
+    problems.push(`catalog/role-pack-release.json version ${release.version} does not match package.json ${packageJson.version}`);
+  }
+  if (release.gitRef !== `v${release.version}`) {
+    problems.push(`catalog/role-pack-release.json gitRef ${release.gitRef} does not match version ${release.version}`);
+  }
+  if (release.gitUrl !== 'https://github.com/MARUCIE/openclaw-role-packs.git') {
+    problems.push(`catalog/role-pack-release.json gitUrl is unexpected: ${release.gitUrl}`);
+  }
+}
 
 for (const id of ids) {
   if (!dirs.includes(id)) problems.push(`${id}: catalog id has no matching packs/ directory`);
@@ -144,10 +164,24 @@ for (const id of dirs) {
     if (legacyPagesInstall.test(text)) {
       problems.push(`${id}: ${path.replace(`${packDir}/`, '')} exposes legacy Pages install.sh URL`);
     }
+    if (unpinnedGitInstall.test(text)) {
+      problems.push(`${id}: ${path.replace(`${packDir}/`, '')} exposes unpinned Git install command`);
+    }
     if (forbiddenPublicSource.test(text)) {
       problems.push(`${id}: ${path.replace(`${packDir}/`, '')} exposes local-only source`);
     }
+    if (concretePersonName.test(text)) {
+      problems.push(`${id}: ${path.replace(`${packDir}/`, '')} exposes concrete person name`);
+    }
   }
+}
+
+for (const path of ['README.md', 'install.sh', 'catalog/packs.json', 'catalog/collections.json']) {
+  const absolute = join(root, path);
+  if (!existsSync(absolute)) continue;
+  const text = readFileSync(absolute, 'utf8');
+  if (unpinnedGitInstall.test(text)) problems.push(`${path}: exposes unpinned Git install command`);
+  if (concretePersonName.test(text)) problems.push(`${path}: exposes concrete person name`);
 }
 
 if (existsSync(skillsCatalogPath)) {

@@ -27,7 +27,25 @@ case "$1" in
     exit 0
     ;;
   --list)
-    find "$ROOT_DIR/packs" -mindepth 1 -maxdepth 1 -type d -print | sed "s#^$ROOT_DIR/packs/##" | sort
+    python3 - "$ROOT_DIR/packs" <<'PY'
+import json
+import os
+import sys
+
+packs_dir = sys.argv[1]
+ids = []
+for name in sorted(os.listdir(packs_dir)):
+    pack_dir = os.path.join(packs_dir, name)
+    manifest_path = os.path.join(pack_dir, "manifest.json")
+    if not os.path.isdir(pack_dir) or not os.path.exists(manifest_path):
+        continue
+    with open(manifest_path, "r", encoding="utf-8") as handle:
+        manifest = json.load(handle)
+    if manifest.get("deprecated_alias_of"):
+        continue
+    ids.append(name)
+print("\n".join(ids))
+PY
     exit 0
     ;;
 esac

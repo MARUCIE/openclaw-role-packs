@@ -6,19 +6,19 @@ Standalone role configuration packs synced from the local OpenClaw Foundry workt
 
 Use the Git repo as the transport. This fetches the complete pack snapshot before running the installer, so `manifest.json` and every referenced artifact stay in sync.
 
-Latest:
-
-```bash
-tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/MARUCIE/openclaw-role-packs.git "$tmp/openclaw-role-packs"
-"$tmp/openclaw-role-packs/install.sh" product-manager --agent=claude
-```
-
 Pinned release snapshot:
 
 ```bash
 tmp="$(mktemp -d)"
-git clone --depth 1 --branch v2026.05.27.2 https://github.com/MARUCIE/openclaw-role-packs.git "$tmp/openclaw-role-packs"
+git clone --depth 1 --branch v2026.05.27.3 https://github.com/MARUCIE/openclaw-role-packs.git "$tmp/openclaw-role-packs"
+"$tmp/openclaw-role-packs/install.sh" product-manager --agent=claude
+```
+
+Another pack:
+
+```bash
+tmp="$(mktemp -d)"
+git clone --depth 1 --branch v2026.05.27.3 https://github.com/MARUCIE/openclaw-role-packs.git "$tmp/openclaw-role-packs"
 "$tmp/openclaw-role-packs/install.sh" frontend-engineer --agent=codex
 ```
 

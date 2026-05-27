@@ -40,7 +40,7 @@ if (!existsSync(sourceData) || !statSync(sourceData).isDirectory()) {
 mkdirSync(tmpRoot, { recursive: true });
 cpSync(sourcePacks, join(tmpRoot, 'packs'), { recursive: true });
 mkdirSync(join(tmpRoot, 'catalog'), { recursive: true });
-for (const filename of ['packs.json', 'skills.json', 'skills-categories.json', 'collections.json', 'providers.json', 'stats.json']) {
+for (const filename of ['packs.json', 'skills.json', 'skills-categories.json', 'collections.json', 'providers.json', 'stats.json', 'role-pack-release.json']) {
   const src = join(sourceData, filename);
   if (existsSync(src)) cpSync(src, join(tmpRoot, 'catalog', filename));
 }

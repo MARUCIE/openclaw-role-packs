@@ -15,12 +15,12 @@ const results = [];
 mkdirSync(runRoot, { recursive: true });
 
 for (const packId of selected) {
-  const packDir = join(packsDir, packId);
+const packDir = join(packsDir, packId);
   const target = join(runRoot, packId);
   mkdirSync(target, { recursive: true });
 
-  const install = spawnSync('bash', [join(packDir, 'install.sh'), '--agent=codex', '--target', target], {
-    cwd: packDir,
+  const install = spawnSync('bash', [join(root, 'install.sh'), packId, '--agent=codex', '--target', target], {
+    cwd: root,
     env: {
       ...process.env,
       INSTALL_DEST: target,
